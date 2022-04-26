@@ -1,0 +1,51 @@
+overwrite: true
+schema: "http://localhost:4000/graphql"
+documents: "schema/graphql/*.graphql"
+generates:
+  schema/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "urql-introspection"
+      - "typescript-urql-graphcache"
+  ./:
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: schema/generated/graphql.ts
+      extension: .ts
+    config:
+      preResolveTypes: false
+    plugins:
+      - typescript-operations
+      - typed-document-node
+#      - typescript-vue-urql
+
+# Demo
+# schema: ./gql/schema.graphql
+# documents: ./gql/**/*.graphql
+# #hooks:
+# #  afterOneFileWrite:
+# #    - eslint --fix
+# config:
+#   scalars:
+#     Long: number
+#   defaultScalarType: never
+#   useTypeImports: true
+# generates:
+#   gql/schema.ts:
+#     plugins:
+#       - typescript
+#       - typescript-urql-graphcache
+#   gql/:
+#     preset: near-operation-file
+#     presetConfig:
+#       baseTypesPath: schema.ts
+#       extension: .ts
+#     config:
+#       preResolveTypes: false
+#     plugins:
+#       - typescript-operations
+#       - typed-document-node
+# #      - typescript-vue-urql
+#   gql/introspection.ts:
+#     plugins:
+#       - urql-introspection

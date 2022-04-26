@@ -1,0 +1,8 @@
+query getTypes{
+    type{
+        id
+        typeName
+        orderNum
+        icon
+    }
+}

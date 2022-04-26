@@ -1,0 +1,56 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TypeDto {
+  id: Float!
+  typeName: String!
+  orderNum: Float!
+  icon: String!
+}
+
+type CreateBlogContentDto {
+  id: Float!
+  title: String!
+  type: String!
+  introduce: String!
+  content: String!
+}
+
+type ArticleDto {
+  id: Float!
+  type_id: String!
+  title: String!
+  article_content: String!
+  introduce: String!
+  addTime: Float!
+  view_content: Float!
+}
+
+type Query {
+  type: [TypeDto!]!
+  blogContent(id: Float!): [CreateBlogContentDto!]!
+  getArticle(id: Float!): ArticleDto!
+  getArticles: [ArticleDto!]!
+  updateArticle(id: Float!, article: inputArticle!): ArticleDto!
+  deleteArticle(id: Float!): ArticleDto!
+  createArticle(article: inputArticle!): ArticleDto!
+}
+
+input inputArticle {
+  title: String!
+  type_id: Float!
+  introduce: String!
+  article_content: String!
+}
+
+type Mutation {
+  createblogContent(data: inputblogContent!): CreateBlogContentDto!
+}
+
+input inputblogContent {
+  title: String!
+  type: String!
+  introduce: String!
+  content: String!
+}
