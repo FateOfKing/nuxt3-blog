@@ -1,6 +1,6 @@
 {
   "node_modules/nuxt/dist/app/entry.mjs": {
-    "file": "entry-298ea703.mjs",
+    "file": "entry-6bec7f4f.mjs",
     "src": "node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "dynamicImports": [
@@ -11,40 +11,40 @@
       "pages/skillSample.vue"
     ],
     "css": [
-      "entry.20072ffb.css"
+      "entry.5f9986f8.css"
     ],
     "assets": [
       "avatar.a4306ac7.jpg"
     ]
   },
   "pages/archive.vue": {
-    "file": "archive-21df8f86.mjs",
+    "file": "archive-670a69bb.mjs",
     "src": "pages/archive.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_article-4d80814c.mjs",
+      "_article-0d844e3a.mjs",
       "node_modules/nuxt/dist/app/entry.mjs",
-      "_pageContainer-c6eeb7c3.mjs"
+      "_pageContainer-dd09c364.mjs"
     ]
   },
-  "_article-4d80814c.mjs": {
-    "file": "article-4d80814c.mjs",
+  "_article-0d844e3a.mjs": {
+    "file": "article-0d844e3a.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
-  "_pageContainer-c6eeb7c3.mjs": {
-    "file": "pageContainer-c6eeb7c3.mjs",
+  "_pageContainer-dd09c364.mjs": {
+    "file": "pageContainer-dd09c364.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
   "pages/detail/[id].vue": {
-    "file": "_id_-b3d49c8b.mjs",
+    "file": "_id_-16660968.mjs",
     "src": "pages/detail/[id].vue",
     "isDynamicEntry": true,
     "imports": [
-      "_article-4d80814c.mjs",
+      "_article-0d844e3a.mjs",
       "node_modules/nuxt/dist/app/entry.mjs",
       "_index-ed8b9815.mjs"
     ]
@@ -53,14 +53,14 @@
     "file": "index-ed8b9815.mjs"
   },
   "pages/index.vue": {
-    "file": "index-27e32ad6.mjs",
+    "file": "index-429465fa.mjs",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_article-4d80814c.mjs",
+      "_article-0d844e3a.mjs",
       "node_modules/nuxt/dist/app/entry.mjs",
       "_index-ed8b9815.mjs",
-      "_pageContainer-c6eeb7c3.mjs"
+      "_pageContainer-dd09c364.mjs"
     ]
   },
   "pages/life.vue": {
@@ -69,7 +69,7 @@
     "isDynamicEntry": true
   },
   "pages/skillSample.vue": {
-    "file": "skillSample-d0858c4e.mjs",
+    "file": "skillSample-add265d2.mjs",
     "src": "pages/skillSample.vue",
     "isDynamicEntry": true,
     "imports": [
