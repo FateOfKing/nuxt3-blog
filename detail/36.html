@@ -2,11 +2,100 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-b14839fd.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.2a29b0d9.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-163bd384.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-c4acfac6.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-ab26afcb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-072f1a66.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-0e0471c6.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-6392a269.mjs"><link rel="stylesheet" href="/_nuxt/entry.2a29b0d9.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-75bc457b.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.20072ffb.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-1f857193.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-726819bb.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-274aff02.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-142f2fef.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-f522a8b8.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-8fd6e8fe.mjs"><link rel="stylesheet" href="/_nuxt/entry.20072ffb.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-62915858><div class="flex justify-center bg-black-bg-color" data-v-62915858 data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-62915858><div class="center bg-white mt-5 p-5" data-v-62915858><div data-v-62915858><div class="text-black text-xl font-bold text-center" data-v-62915858></div><div class="text-sm text-gray-400 text-center mt-3" data-v-62915858></div><div data-v-62915858></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-b14839fd.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-163bd384.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-f59aa03c><div class="flex justify-center bg-black-bg-color" data-v-f59aa03c data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-f59aa03c><div class="center bg-white mt-5 p-5" data-v-f59aa03c><div data-v-f59aa03c><div class="text-black text-xl font-bold text-center" data-v-f59aa03c>Vue知识点</div><div class="text-sm text-gray-400 text-center mt-3" data-v-f59aa03c>2020-7-17</div><div data-v-f59aa03c><h3 id="vue的模板语法用的是哪个web模板引擎，说说理解">vue的模板语法用的是哪个web模板引擎，说说理解</h3>
+<p>印象中是 mustache，模板引擎的初衷是解决早期的字符模板拼接的问题。标志性的语法：双大括号的语法</p>
+<h3 id="v-model的原理">v-model的原理</h3>
+<p>原生input其实只是一个语法糖，:bind=&quot;value&quot;与<a href="https://github.com/change">@change</a>=&quot;value = $event.target.value&quot;的结合。
+自定义组件的时候的v-model默认监听change事件和绑定value 的prop。</p>
+<h3 id="vue开发多语言项目">vue开发多语言项目</h3>
+<p>vue-i18n 使用简单，案例也多，很方便<a href="https://www.cnblogs.com/rogerwu/p/7744476.html">https://www.cnblogs.com/rogerwu/p/7744476.html</a></p>
+<h3 id="在使用计算属性的时，函数名和data数据源中的数据可以同名吗">在使用计算属性的时，函数名和data数据源中的数据可以同名吗</h3>
+<p>不能同名 因为不管是计算属性还是data还是props 都会被挂载在vm实例上，因此 这三个都不能同名</p>
+<h3 id="vue中data的属性可以和methods中的方法同名吗？为什么？">vue中data的属性可以和methods中的方法同名吗？为什么？</h3>
+<p>不可以。data中的属性和methods方法重名会优先执行data中的属性并且报错。</p>
+<h3 id="怎么给vue定义全局的方法？">怎么给vue定义全局的方法？</h3>
+<p>第一种：挂载到Vue的prototype上。把全局方法写到一个文件里面，然后for循环挂载到Vue的prototype上，缺点是调用这个方法的时候没有提示。
+第二种：利用全局混入mixin，因为mixin里面的methods会和创建的每个单文件组件合并。这样做的优点是调用这个方法的时候有提示
+第三种：通过插件Vue.use(plugin)</p>
+<h3 id="vue20不再支持v-html中使用过滤器了怎么办？">vue2.0不再支持v-html中使用过滤器了怎么办？</h3>
+<p>1：全局方法（推荐）
+2：computed 属性
+3：$options.filters（推荐）</p>
+<h3 id="怎么解决vue动态设置img的src不生效的问题">怎么解决vue动态设置img的src不生效的问题</h3>
+<p>加require</p>
+<h3 id="使用vue后怎么针对搜索引擎做seo优化">使用vue后怎么针对搜索引擎做SEO优化</h3>
+<p>使用服务端渲染，vue官方推荐nuxt.js或者ssr 即单页面后台渲染</p>
+<h3 id="跟keep-alive有关的生命周期是哪些？描述下这些生命周期">跟keep-alive有关的生命周期是哪些？描述下这些生命周期</h3>
+<p>activated和deactivated
+keep-alive的生命周期
+1.activated： 页面第一次进入的时候，钩子触发的顺序是created-&gt;mounted-&gt;activated
+2.deactivated: 页面退出的时候会触发deactivated，当再次前进或者后退的时候只触发activated</p>
+<h3 id="你知道vue20兼容ie哪个版本以上吗">你知道vue2.0兼容IE哪个版本以上吗</h3>
+<p>不支持ie8及以下，部分兼容ie9 ，完全兼容10以上</p>
+<h3 id="使用vue开发一个todo小应用，谈下你的思路">使用vue开发一个todo小应用，谈下你的思路</h3>
+<p>结构: 输入部分( input )和输出部分( ul )
+逻辑:用户输入之后,通过事件触发拿到用户输入的数据存起来,
+将用户数据集合通过 v-for 渲染到页面上
+当用户点击清单项,通过事件触发移出对应事件</p>
+<h3 id="你有看过vue推荐的风格指南吗？">你有看过vue推荐的风格指南吗？</h3>
+<p>1、使用v-for时记得加key，可以快速定位到需要更新的DOM节点，提高效率。
+2、永远不要把 v-if 和 v-for 同时用在同一个元素上。提高渲染效率
+3、优先通过 Vuex 管理全局状态，而不是通过 this.$root 或一个全局事件总线
+4、组件的prop尽可能描述的越详细越好，类型校验</p>
+<h3 id="你知道vue中key的原理吗？说说你对它的理解">你知道vue中key的原理吗？说说你对它的理解</h3>
+<p>作用的话，便于diff算法的更新，key的唯一性，能让算法更快的找到需要更新的dom，需要注意的是，key要唯一，不然会出现很隐蔽性的更新问题。<a href="https://www.jianshu.com/p/4f67c3f216a0">详细</a></p>
+<h3 id="vue中怎么重置data">vue中怎么重置data</h3>
+<p>Object.assign（）方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象
+this.$data获取当前状态下的data
+this.$options.data()获取该组件初始状态下的data。
+bject.assign(this.$data, this.$options.data())</p>
+<h3 id="vue渲染模板时怎么保留模板中的html注释呢？">vue渲染模板时怎么保留模板中的HTML注释呢？</h3>
+<template comments>
+  ...
+</template>
+
+<h3 id="你知道style加scoped属性的用途和原理吗">你知道style加scoped属性的用途和原理吗</h3>
+<p>用途：防止全局同名CSS污染
+原理：在标签加上v-data-something属性，再在选择器时加上对应[v-data-something]，即CSS带属性选择器，以此完成类似作用域的选择方式</p>
+<h3 id="如何在子组件中访问父组件的实例">如何在子组件中访问父组件的实例</h3>
+<p>vue中如果父组件想调用子组件的方法，可以在子组件中加上ref，然后通过this.$refs.ref.method调用(<a href="https://www.cnblogs.com/jin-zhe/p/9523029.html">https://www.cnblogs.com/jin-zhe/p/9523029.html</a>)
+Vue中子组件调用父组件的方法，这里有三种方法提供参考：
+1：直接在子组件中通过this.$parent.event来调用父组件的方法
+2：在子组件里用$emit向父组件触发一个事件，父组件监听这个事件
+3：父组件把方法传入子组件中，在子组件里直接调用这个方法
+（<a href="https://www.cnblogs.com/jin-zhe/p/9523782.html%EF%BC%89">https://www.cnblogs.com/jin-zhe/p/9523782.html）</a></p>
+<h3 id="watch的属性用箭头函数定义结果会怎么样">watch的属性用箭头函数定义结果会怎么样</h3>
+<p>因为箭头函数默绑定父级作用域的上下文，所以不会绑定vue实例，所以 this 是undefind</p>
+<h3 id="在vue项目中如何配置favicon？">在vue项目中如何配置favicon？</h3>
+<p>Vue-cli3中，可以在vue.config.js中的pwa字段配置favicon路径等相关设置</p>
+<h3 id="在vue事件中传入event，使用etarget和ecurrenttarget有什么区别？">在vue事件中传入$event，使用e.target和e.currentTarget有什么区别？</h3>
+<p>event.currentTarget指向事件所绑定的元素，而event.target始终指向事件发生时的元素。</p>
+<h3 id="vue给组件绑定自定义事件无效怎么解决">vue给组件绑定自定义事件无效怎么解决</h3>
+<p>两种方式
+1、组件外部加修饰符.navtive
+2、组件内部声明$emit(&#39;自定义事件&#39;)</p>
+<h3 id="vue怎么实现强制刷新组件">vue怎么实现强制刷新组件</h3>
+<p>this.$forceUpdate()
+v-if</p>
+<h3 id="vue给组件绑定自定义事件无效怎么解决-1">vue给组件绑定自定义事件无效怎么解决</h3>
+<p>两种方式
+1、组件外部加修饰符.navtive
+2、组件内部声明$emit(&#39;自定义事件&#39;)</p>
+<h3 id="vue使用v-for遍历对象时，是按什么顺序遍历的？如何保证顺序">vue使用v-for遍历对象时，是按什么顺序遍历的？如何保证顺序</h3>
+<p>1、会先判断是否有iterator接口，如果有循环执行next()方法
+2、没有iterator的情况下，会调用Object.keys()方法，在不同浏览器中，JS引擎不能保证输出顺序一致
+3、保证对象的输出顺序可以把对象放在数组中，作为数组的元素</p>
+<h3 id="vue如果想扩展某个现有的组件时，怎么做呢？">vue如果想扩展某个现有的组件时，怎么做呢？</h3>
+<p>不对原组件进行更改的：
+使用Vue.extend直接扩展
+使用Vue.mixin全局混入
+HOC封装
+可以加slot扩展</p>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061172":{data:"{\"getArticle\":{\"id\":36,\"title\":\"Vue知识点\",\"article_content\":\"### vue的模板语法用的是哪个web模板引擎，说说理解\\n印象中是 mustache，模板引擎的初衷是解决早期的字符模板拼接的问题。标志性的语法：双大括号的语法\\n\\n### v-model的原理\\n原生input其实只是一个语法糖，:bind=\\\"value\\\"与[@change](https:\u002F\u002Fgithub.com\u002Fchange)=\\\"value = $event.target.value\\\"的结合。\\n自定义组件的时候的v-model默认监听change事件和绑定value 的prop。\\n\\n### vue开发多语言项目\\nvue-i18n 使用简单，案例也多，很方便[https:\u002F\u002Fwww.cnblogs.com\u002Frogerwu\u002Fp\u002F7744476.html](https:\u002F\u002Fwww.cnblogs.com\u002Frogerwu\u002Fp\u002F7744476.html)\\n\\n### 在使用计算属性的时，函数名和data数据源中的数据可以同名吗\\n不能同名 因为不管是计算属性还是data还是props 都会被挂载在vm实例上，因此 这三个都不能同名\\n\\n### vue中data的属性可以和methods中的方法同名吗？为什么？\\n不可以。data中的属性和methods方法重名会优先执行data中的属性并且报错。\\n\\n### 怎么给vue定义全局的方法？\\n第一种：挂载到Vue的prototype上。把全局方法写到一个文件里面，然后for循环挂载到Vue的prototype上，缺点是调用这个方法的时候没有提示。\\n第二种：利用全局混入mixin，因为mixin里面的methods会和创建的每个单文件组件合并。这样做的优点是调用这个方法的时候有提示\\n第三种：通过插件Vue.use(plugin)\\n\\n### vue2.0不再支持v-html中使用过滤器了怎么办？\\n1：全局方法（推荐）\\n2：computed 属性\\n3：$options.filters（推荐）\\n\\n### 怎么解决vue动态设置img的src不生效的问题\\n加require\\n\\n### 使用vue后怎么针对搜索引擎做SEO优化\\n使用服务端渲染，vue官方推荐nuxt.js或者ssr 即单页面后台渲染\\n\\n### 跟keep-alive有关的生命周期是哪些？描述下这些生命周期\\nactivated和deactivated\\nkeep-alive的生命周期\\n1.activated： 页面第一次进入的时候，钩子触发的顺序是created-\u003Emounted-\u003Eactivated\\n2.deactivated: 页面退出的时候会触发deactivated，当再次前进或者后退的时候只触发activated\\n\\n### 你知道vue2.0兼容IE哪个版本以上吗\\n不支持ie8及以下，部分兼容ie9 ，完全兼容10以上\\n\\n### 使用vue开发一个todo小应用，谈下你的思路\\n结构: 输入部分( input )和输出部分( ul )\\n逻辑:用户输入之后,通过事件触发拿到用户输入的数据存起来,\\n将用户数据集合通过 v-for 渲染到页面上\\n当用户点击清单项,通过事件触发移出对应事件\\n\\n### 你有看过vue推荐的风格指南吗？\\n1、使用v-for时记得加key，可以快速定位到需要更新的DOM节点，提高效率。\\n2、永远不要把 v-if 和 v-for 同时用在同一个元素上。提高渲染效率\\n3、优先通过 Vuex 管理全局状态，而不是通过 this.$root 或一个全局事件总线\\n4、组件的prop尽可能描述的越详细越好，类型校验\\n\\n### 你知道vue中key的原理吗？说说你对它的理解 \\n作用的话，便于diff算法的更新，key的唯一性，能让算法更快的找到需要更新的dom，需要注意的是，key要唯一，不然会出现很隐蔽性的更新问题。[详细](https:\u002F\u002Fwww.jianshu.com\u002Fp\u002F4f67c3f216a0)\\n\\n### vue中怎么重置data\\nObject.assign（）方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象\\nthis.$data获取当前状态下的data\\nthis.$options.data()获取该组件初始状态下的data。\\nbject.assign(this.$data, this.$options.data())\\n\\n###  vue渲染模板时怎么保留模板中的HTML注释呢？\\n\u003Ctemplate comments\u003E\\n  ...\\n\u003C\u002Ftemplate\u003E\\n\\n### 你知道style加scoped属性的用途和原理吗\\n用途：防止全局同名CSS污染\\n原理：在标签加上v-data-something属性，再在选择器时加上对应[v-data-something]，即CSS带属性选择器，以此完成类似作用域的选择方式\\n\\n### 如何在子组件中访问父组件的实例\\nvue中如果父组件想调用子组件的方法，可以在子组件中加上ref，然后通过this.$refs.ref.method调用([https:\u002F\u002Fwww.cnblogs.com\u002Fjin-zhe\u002Fp\u002F9523029.html](https:\u002F\u002Fwww.cnblogs.com\u002Fjin-zhe\u002Fp\u002F9523029.html))\\nVue中子组件调用父组件的方法，这里有三种方法提供参考：\\n1：直接在子组件中通过this.$parent.event来调用父组件的方法\\n2：在子组件里用$emit向父组件触发一个事件，父组件监听这个事件\\n3：父组件把方法传入子组件中，在子组件里直接调用这个方法\\n（[https:\u002F\u002Fwww.cnblogs.com\u002Fjin-zhe\u002Fp\u002F9523782.html）](https:\u002F\u002Fwww.cnblogs.com\u002Fjin-zhe\u002Fp\u002F9523782.html%EF%BC%89)\\n\\n### watch的属性用箭头函数定义结果会怎么样\\n因为箭头函数默绑定父级作用域的上下文，所以不会绑定vue实例，所以 this 是undefind\\n\\n### 在vue项目中如何配置favicon？\\nVue-cli3中，可以在vue.config.js中的pwa字段配置favicon路径等相关设置\\n\\n###  在vue事件中传入$event，使用e.target和e.currentTarget有什么区别？\\nevent.currentTarget指向事件所绑定的元素，而event.target始终指向事件发生时的元素。\\n\\n\\n### vue给组件绑定自定义事件无效怎么解决\\n两种方式\\n1、组件外部加修饰符.navtive\\n2、组件内部声明$emit('自定义事件')\\n\\n\\n### vue怎么实现强制刷新组件\\nthis.$forceUpdate()\\nv-if\\n\\n### vue给组件绑定自定义事件无效怎么解决\\n两种方式\\n1、组件外部加修饰符.navtive\\n2、组件内部声明$emit('自定义事件')\\n\\n### vue使用v-for遍历对象时，是按什么顺序遍历的？如何保证顺序\\n1、会先判断是否有iterator接口，如果有循环执行next()方法\\n2、没有iterator的情况下，会调用Object.keys()方法，在不同浏览器中，JS引擎不能保证输出顺序一致\\n3、保证对象的输出顺序可以把对象放在数组中，作为数组的元素\\n\\n### vue如果想扩展某个现有的组件时，怎么做呢？\\n不对原组件进行更改的：\\n使用Vue.extend直接扩展\\n使用Vue.mixin全局混入\\nHOC封装\\n可以加slot扩展\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-75bc457b.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-1f857193.mjs" crossorigin></script>
 </body>
 
 </html>

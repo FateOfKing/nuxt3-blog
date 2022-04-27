@@ -2,11 +2,281 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-b14839fd.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.2a29b0d9.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-163bd384.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-c4acfac6.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-ab26afcb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-072f1a66.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-0e0471c6.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-6392a269.mjs"><link rel="stylesheet" href="/_nuxt/entry.2a29b0d9.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-75bc457b.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.20072ffb.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-1f857193.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-726819bb.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-274aff02.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-142f2fef.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-f522a8b8.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-8fd6e8fe.mjs"><link rel="stylesheet" href="/_nuxt/entry.20072ffb.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-62915858><div class="flex justify-center bg-black-bg-color" data-v-62915858 data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-62915858><div class="center bg-white mt-5 p-5" data-v-62915858><div data-v-62915858><div class="text-black text-xl font-bold text-center" data-v-62915858></div><div class="text-sm text-gray-400 text-center mt-3" data-v-62915858></div><div data-v-62915858></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-b14839fd.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-163bd384.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-f59aa03c><div class="flex justify-center bg-black-bg-color" data-v-f59aa03c data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-f59aa03c><div class="center bg-white mt-5 p-5" data-v-f59aa03c><div data-v-f59aa03c><div class="text-black text-xl font-bold text-center" data-v-f59aa03c>python有界面-ssh连接远程Mac-打包iOS工程并发布</div><div class="text-sm text-gray-400 text-center mt-3" data-v-f59aa03c>2020-7-17</div><div data-v-f59aa03c><p>说一下思路：
+利用python 连接ssh连接远程的Mac打包电脑
+运行在打包电脑上的打包脚本
+把打包脚本的返回值，输出到本机的python GUI界面上</p>
+<p>有不懂的欢迎留言</p>
+<p>先上python代码</p>
+<pre><code>
+
+<span class="hljs-comment"># 在远程机执行python脚本命令</span>
+<span class="hljs-comment"># stdin, stdout, stderr = client.exec_command(&quot;python /home/test.py&quot;)</span>
+<span class="hljs-keyword">import</span> paramiko  <span class="hljs-comment"># 发起ssh请求</span>
+<span class="hljs-keyword">import</span> wx  <span class="hljs-comment"># python界面</span>
+<span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread  <span class="hljs-comment"># python多线程</span>
+<span class="hljs-keyword">from</span> pubsub <span class="hljs-keyword">import</span> pub  <span class="hljs-comment"># python消息通知</span>
+<span class="hljs-keyword">import</span> time  <span class="hljs-comment"># 用于延时操作</span>
+<span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Timer
+
+<span class="hljs-keyword">import</span> pickle  <span class="hljs-comment"># 保存本地数据</span>
+<span class="hljs-keyword">import</span> signal
+<span class="hljs-keyword">import</span> os.path
+
+<span class="hljs-keyword">import</span> sys
+
+
+<span class="hljs-comment"># 初始化ssh实例，发起ssh请求</span>
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+pid = <span class="hljs-number">0</span>
+
+
+<span class="hljs-comment"># 界面绘制</span>
+app = wx.App()
+frame = wx.Frame(parent=<span class="hljs-literal">None</span>, title=<span class="hljs-string">&#x27;远程打包程序&#x27;</span>, size=(<span class="hljs-number">800</span>, <span class="hljs-number">600</span>))
+
+frame.Show()
+
+
+canOutput = <span class="hljs-literal">True</span>
+
+resultStdout = <span class="hljs-string">&#x27;&#x27;</span>
+<span class="hljs-comment"># 接受到pub的通知 异步处理</span>
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">handler</span>(<span class="hljs-params">signalnum</span>):
+    <span class="hljs-comment"># 查找打包等相关进程 并杀掉</span>
+    command = <span class="hljs-string">&quot;ps -ef | grep -E &#x27;xcodebuild|git|pod|fir|curl&#x27; | grep -v grep | awk &#x27;{print $2}&#x27;&quot;</span>
+    stdin, stdout, stderr = ssh.exec_command(command)
+    out = stdout.read().decode()
+    <span class="hljs-built_in">print</span>(out)
+    out = out.split()
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(out) &gt; <span class="hljs-number">0</span>):
+        command = <span class="hljs-string">&#x27;&#x27;</span>
+        <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> out:
+            command += <span class="hljs-string">&quot;kill -9 &quot;</span>+p+<span class="hljs-string">&quot;\n&quot;</span>
+        ssh.exec_command(command)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;exit is done!&#x27;</span>)
+    ssh.close()
+    app.ExitMainLoop()
+
+
+frame.Bind(wx.EVT_CLOSE, handler, frame)
+
+
+<span class="hljs-comment"># 定时循环调用给子线程发送消息</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">prinTime</span>(<span class="hljs-params">inc, l</span>):
+    <span class="hljs-keyword">global</span> canOutput
+    canOutput = <span class="hljs-built_in">bool</span>(<span class="hljs-number">1</span>-canOutput)
+    <span class="hljs-keyword">if</span> canOutput == <span class="hljs-literal">False</span>:
+        t = Timer(inc, prinTime, (inc, l,))
+        t.start()
+    <span class="hljs-keyword">else</span>:
+        wx.CallAfter(pub.sendMessage, <span class="hljs-string">&quot;update&quot;</span>, msg=l)
+
+
+<span class="hljs-comment"># 从缓存中读取ssh执行返回</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">line_buffered</span>(<span class="hljs-params">f</span>):
+    line_buf = <span class="hljs-string">&quot;&quot;</span>
+
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> f.channel.exit_status_ready():
+        <span class="hljs-keyword">try</span>:
+            line_buf += f.read(<span class="hljs-number">5</span>).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)
+
+        <span class="hljs-keyword">except</span>:
+            <span class="hljs-keyword">if</span> line_buf.endswith(<span class="hljs-string">&#x27;\n&#x27;</span>):
+                <span class="hljs-keyword">yield</span> line_buf
+                line_buf = <span class="hljs-string">&#x27;&#x27;</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> line_buf.endswith(<span class="hljs-string">&#x27;\n&#x27;</span>):
+                <span class="hljs-keyword">yield</span> line_buf
+                line_buf = <span class="hljs-string">&#x27;&#x27;</span>
+    <span class="hljs-keyword">else</span>:
+        lab.AppendText(<span class="hljs-string">&quot;上传完毕&quot;</span>)
+
+<span class="hljs-comment"># 子线程</span>
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestThread</span>(<span class="hljs-title class_ inherited__">Thread</span>):
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-comment"># 线程实例化时立即启动</span>
+        Thread.__init__(self)
+        self.start()
+        pub.subscribe(self.updateDisplay, <span class="hljs-string">&quot;update&quot;</span>)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-comment"># 线程执行的代码</span>
+
+        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> line_buffered(resultStdout):
+            <span class="hljs-comment"># print(l)</span>
+            <span class="hljs-keyword">if</span> canOutput == <span class="hljs-literal">True</span>:
+                <span class="hljs-comment"># 隔一秒发送一次消息，绘制一次太快了容易卡住</span>
+                prinTime(<span class="hljs-number">1</span>, l)
+
+    <span class="hljs-comment"># 接受到消息 把终端输出绘制到label</span>
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">updateDisplay</span>(<span class="hljs-params">self, msg</span>):
+        <span class="hljs-comment"># if (lab.GetNumberOfLines() &gt; 100):</span>
+        <span class="hljs-comment">#     lab.Clear()</span>
+        <span class="hljs-comment"># else:</span>
+        <span class="hljs-comment">#     lab.AppendText(msg)</span>
+        lab.AppendText(msg)
+        lab.ShowPosition(lab.GetLastPosition())
+
+<span class="hljs-comment"># 弹框</span>
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TextEntryDialog</span>(wx.Dialog):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, parent=<span class="hljs-literal">None</span>, title=<span class="hljs-string">&#x27;Title&#x27;</span>, caption=<span class="hljs-string">&#x27;Caption&#x27;</span>, size=(<span class="hljs-params"><span class="hljs-number">500</span>, <span class="hljs-number">200</span></span>)</span>):
+
+        style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER
+        <span class="hljs-built_in">super</span>(TextEntryDialog, self).__init__(
+            parent, -<span class="hljs-number">1</span>, title=title, style=style)
+        <span class="hljs-comment"># self.text = wx.StaticText(self, -1, caption)</span>
+        <span class="hljs-comment"># self.input = wx.TextCtrl(</span>
+        <span class="hljs-comment">#     self, -1, pos=(100, 100))</span>
+        <span class="hljs-comment"># self.text1 = wx.StaticText(self, 2, caption)</span>
+        <span class="hljs-comment"># self.input1 = wx.TextCtrl(</span>
+        <span class="hljs-comment">#     self, 2)</span>
+        <span class="hljs-comment"># # self.input.SetInitialSize(size=(500, 60))</span>
+        <span class="hljs-comment"># self.buttons = self.CreateButtonSizer(wx.OK | wx.CANCEL)</span>
+        <span class="hljs-comment"># self.sizer = wx.BoxSizer(wx.VERTICAL)</span>
+        <span class="hljs-comment"># self.sizer.Add(self.text, 0, wx.ALL, 5)</span>
+        <span class="hljs-comment"># self.sizer.Add(self.input, 1, wx.EXPAND | wx.ALL, 5)</span>
+        <span class="hljs-comment"># self.sizer.Add(self.text1, 2, wx.ALL, 6)</span>
+        <span class="hljs-comment"># self.sizer.Add(self.input1, 3, wx.EXPAND | wx.ALL, 6)</span>
+        <span class="hljs-comment"># self.sizer.Add(self.buttons, 0, wx.EXPAND | wx.ALL, 5)</span>
+        <span class="hljs-comment"># self.SetSizerAndFit(self.sizer)</span>
+        <span class="hljs-comment"># self.Center()</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">SetValue</span>(<span class="hljs-params">self, value</span>):
+        self.<span class="hljs-built_in">input</span>.SetValue(value)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">GetValue</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> self.<span class="hljs-built_in">input</span>.GetValue()
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">GetText</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> self.<span class="hljs-built_in">input</span>.LabelText
+
+
+ip = <span class="hljs-string">&#x27;&#x27;</span>
+
+button = wx.Button(frame, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;连接&quot;</span>, pos=(<span class="hljs-number">100</span>, <span class="hljs-number">150</span>))
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">startssh</span>(<span class="hljs-params">self</span>):
+    lab.SetEditable(<span class="hljs-literal">False</span>)
+    <span class="hljs-keyword">global</span> resultStdout
+    ssh.connect(ip,
+                username=<span class="hljs-built_in">str</span>(usernameinput.GetValue()), password=<span class="hljs-built_in">str</span>(passwordinput.GetValue()))
+    stdin, resultStdout, stderr = ssh.exec_command(
+        <span class="hljs-string">&#x27;echo $$; exec &#x27;</span>+<span class="hljs-string">&#x27;~/Documents/work/xcodebuild.sh&#x27;</span>)
+    <span class="hljs-comment"># 接受返回值pid 方便关闭应用</span>
+    pid = resultStdout.readline()
+    TestThread()
+    lab.Show()
+    ulab.Hide()
+    plab.Hide()
+    usernameinput.Hide()
+    passwordinput.Hide()
+    button.Hide()
+
+
+lab = wx.TextCtrl(frame, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;正在连接\n&quot;</span>,
+                  pos=(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>), size=(<span class="hljs-number">780</span>, <span class="hljs-number">580</span>), style=wx.BORDER_SIMPLE | wx.TE_MULTILINE | wx.HSCROLL | wx.TE_WORDWRAP)
+lab.Hide()
+
+ulab = wx.StaticText(frame, -<span class="hljs-number">1</span>, <span class="hljs-string">&quot;用户名&quot;</span>, pos=(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>))
+plab = wx.StaticText(frame, -<span class="hljs-number">1</span>, <span class="hljs-string">&quot;密码&quot;</span>,  pos=(<span class="hljs-number">10</span>, <span class="hljs-number">80</span>))
+
+
+usernameinput = wx.TextCtrl(frame, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;xxx&quot;</span>,
+                            pos=(<span class="hljs-number">100</span>, <span class="hljs-number">10</span>), size=(<span class="hljs-number">200</span>, <span class="hljs-number">50</span>))
+passwordinput = wx.TextCtrl(frame, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;123456&quot;</span>,
+                            pos=(<span class="hljs-number">100</span>, <span class="hljs-number">80</span>), size=(<span class="hljs-number">200</span>, <span class="hljs-number">50</span>))
+
+button.Bind(wx.EVT_BUTTON, startssh, button)
+
+dialog = wx.TextEntryDialog(<span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;IP&#x27;</span>, <span class="hljs-string">&#x27;连接ssh&#x27;</span>,
+                            style=wx.TE_MULTILINE | wx.OK | wx.CANCEL)
+dialog.SetInitialSize(size=(<span class="hljs-number">500</span>, <span class="hljs-number">200</span>))
+dialog.SetValue(<span class="hljs-string">&quot;192.168.7.16&quot;</span>)
+<span class="hljs-keyword">if</span> dialog.ShowModal() == wx.ID_OK:
+    ip = dialog.GetValue()
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;ok&quot;</span>)
+    dialog.Destroy()
+
+
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(dialog.Destroy())
+    app.ExitMainLoop()
+    exit(<span class="hljs-number">0</span>)
+
+
+<span class="hljs-comment"># 启动子线程</span>
+dialog.Destroy()
+
+app.MainLoop()
+
+</code></pre>
+<p>接下来是打包脚本代码</p>
+<pre><code><span class="hljs-comment">#ios工程目录名称</span>
+iosproject=xxx-ios
+SCHEMENAME=xxx
+WORKSPACE=xxx
+
+rm -rf ~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span>
+
+security -v unlock-keychain -p <span class="hljs-string">&quot;123456&quot;</span> ~<span class="hljs-regexp">/Library/</span>Keychains/login.keychain
+
+WORKSPACE=~<span class="hljs-regexp">/Documents/</span>work<span class="hljs-regexp">/${iosproject}/</span><span class="hljs-variable">${WORKSPACE}</span>.xcworkspace
+cd ~<span class="hljs-regexp">/Documents/</span>work/<span class="hljs-variable">${iosproject}</span>
+git pull
+pod install
+xcodebuild -workspace <span class="hljs-variable">${WORKSPACE}</span> -scheme <span class="hljs-variable">${SCHEMENAME}</span> clean
+
+<span class="hljs-comment">#编译工程</span>
+xcodebuild archive -workspace <span class="hljs-variable">${WORKSPACE}</span> -scheme <span class="hljs-variable">${SCHEMENAME}</span> -configuration Release -archivePath ~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span>/<span class="hljs-variable">${SCHEMENAME}</span>
+
+<span class="hljs-comment">#导出企业版本ipa</span>
+xcodebuild -exportArchive -archivePath ~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span><span class="hljs-regexp">/${SCHEMENAME}.xcarchive -exportPath ~/</span>Desktop<span class="hljs-regexp">/${SCHEMENAME}/</span>IPA<span class="hljs-regexp">/ -exportOptionsPlist ~/</span>Documents<span class="hljs-regexp">/work/</span>exprotOptionsPlist_enterprise.plist
+
+<span class="hljs-comment">#userPath=$(cd ~; pwd)</span>
+<span class="hljs-comment">##上传蒲公英</span>
+<span class="hljs-comment">#curl -F &quot;file=@${userPath}/Desktop/${SCHEMENAME}/IPA/${SCHEMENAME}.ipa&quot; \</span>
+<span class="hljs-comment">#-F &quot;uKey=xxx&quot; \</span>
+<span class="hljs-comment">#-F &quot;_api_key=xxxx&quot; \</span>
+<span class="hljs-comment">#https://qiniu-storage.pgyer.com/apiv1/app/upload</span>
+
+
+
+<span class="hljs-comment">#需要安装fir-cli 安装方法 https://github.com/FIRHQ/fir-cli/blob/master/README.md</span>
+fir login -T xxx
+fir publish ~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span><span class="hljs-regexp">/IPA/</span><span class="hljs-variable">${SCHEMENAME}</span>.ipa
+
+<span class="hljs-comment">#!/bin/bash</span>
+email_reciver1=<span class="hljs-string">&quot;xx@qq.com&quot;</span>
+<span class="hljs-comment">#发送者邮箱</span>
+email_sender=x@<span class="hljs-number">163</span>.com
+<span class="hljs-comment">#邮箱用户名</span>
+email_username=x@<span class="hljs-number">163</span>.com
+<span class="hljs-comment">#邮箱密码</span>
+<span class="hljs-comment">#使用qq邮箱进行发送需要注意：首先需要开启：POP3/SMTP服务，其次发送邮件的密码需要使用在开启POP3/SMTP服务时候腾讯提供的第三方客户端登陆码。</span>
+email_password=x
+
+email_title=<span class="hljs-variable">$iosproject</span><span class="hljs-string">&quot; 新版本 iOS客户端 &quot;</span>
+email_content=<span class="hljs-string">&quot;新版本 iOS客户端 已上传fir&quot;</span>
+sendEmail -f <span class="hljs-variable">${email_sender}</span> -t <span class="hljs-variable">${email_reciver1}</span>  -s <span class="hljs-variable">${email_smtphost}</span> -u <span class="hljs-variable">${email_title}</span> -xu <span class="hljs-variable">${email_username}</span> -xp <span class="hljs-variable">${email_password}</span> -m <span class="hljs-string">&quot;$email_content&quot;</span>  -o message-charset=utf-<span class="hljs-number">8</span>
+
+
+</code></pre>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323060182":{data:"{\"getArticle\":{\"id\":29,\"title\":\"python有界面-ssh连接远程Mac-打包iOS工程并发布\",\"article_content\":\"说一下思路：\\n利用python 连接ssh连接远程的Mac打包电脑\\n运行在打包电脑上的打包脚本\\n把打包脚本的返回值，输出到本机的python GUI界面上\\n\\n有不懂的欢迎留言\\n\\n先上python代码\\n\\n```\\n\\n\\n# 在远程机执行python脚本命令\\n# stdin, stdout, stderr = client.exec_command(\\\"python \u002Fhome\u002Ftest.py\\\")\\nimport paramiko  # 发起ssh请求\\nimport wx  # python界面\\nfrom threading import Thread  # python多线程\\nfrom pubsub import pub  # python消息通知\\nimport time  # 用于延时操作\\nfrom threading import Timer\\n\\nimport pickle  # 保存本地数据\\nimport signal\\nimport os.path\\n\\nimport sys\\n\\n\\n# 初始化ssh实例，发起ssh请求\\nssh = paramiko.SSHClient()\\nssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())\\n\\npid = 0\\n\\n\\n# 界面绘制\\napp = wx.App()\\nframe = wx.Frame(parent=None, title='远程打包程序', size=(800, 600))\\n\\nframe.Show()\\n\\n\\ncanOutput = True\\n\\nresultStdout = ''\\n# 接受到pub的通知 异步处理\\n\\n\\ndef handler(signalnum):\\n    # 查找打包等相关进程 并杀掉\\n    command = \\\"ps -ef | grep -E 'xcodebuild|git|pod|fir|curl' | grep -v grep | awk '{print $2}'\\\"\\n    stdin, stdout, stderr = ssh.exec_command(command)\\n    out = stdout.read().decode()\\n    print(out)\\n    out = out.split()\\n    if(len(out) \u003E 0):\\n        command = ''\\n        for p in out:\\n            command += \\\"kill -9 \\\"+p+\\\"\\\\n\\\"\\n        ssh.exec_command(command)\\n    print('exit is done!')\\n    ssh.close()\\n    app.ExitMainLoop()\\n\\n\\nframe.Bind(wx.EVT_CLOSE, handler, frame)\\n\\n\\n# 定时循环调用给子线程发送消息\\ndef prinTime(inc, l):\\n    global canOutput\\n    canOutput = bool(1-canOutput)\\n    if canOutput == False:\\n        t = Timer(inc, prinTime, (inc, l,))\\n        t.start()\\n    else:\\n        wx.CallAfter(pub.sendMessage, \\\"update\\\", msg=l)\\n\\n\\n# 从缓存中读取ssh执行返回\\ndef line_buffered(f):\\n    line_buf = \\\"\\\"\\n\\n    while not f.channel.exit_status_ready():\\n        try:\\n            line_buf += f.read(5).decode('utf-8')\\n\\n        except:\\n            if line_buf.endswith('\\\\n'):\\n                yield line_buf\\n                line_buf = ''\\n        else:\\n            if line_buf.endswith('\\\\n'):\\n                yield line_buf\\n                line_buf = ''\\n    else:\\n        lab.AppendText(\\\"上传完毕\\\")\\n\\n# 子线程\\n\\n\\nclass TestThread(Thread):\\n\\n    def __init__(self):\\n        # 线程实例化时立即启动\\n        Thread.__init__(self)\\n        self.start()\\n        pub.subscribe(self.updateDisplay, \\\"update\\\")\\n\\n    def run(self):\\n        # 线程执行的代码\\n\\n        for l in line_buffered(resultStdout):\\n            # print(l)\\n            if canOutput == True:\\n                # 隔一秒发送一次消息，绘制一次太快了容易卡住\\n                prinTime(1, l)\\n\\n    # 接受到消息 把终端输出绘制到label\\n    def updateDisplay(self, msg):\\n        # if (lab.GetNumberOfLines() \u003E 100):\\n        #     lab.Clear()\\n        # else:\\n        #     lab.AppendText(msg)\\n        lab.AppendText(msg)\\n        lab.ShowPosition(lab.GetLastPosition())\\n\\n# 弹框\\n\\n\\nclass TextEntryDialog(wx.Dialog):\\n    def __init__(self, parent=None, title='Title', caption='Caption', size=(500, 200)):\\n\\n        style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER\\n        super(TextEntryDialog, self).__init__(\\n            parent, -1, title=title, style=style)\\n        # self.text = wx.StaticText(self, -1, caption)\\n        # self.input = wx.TextCtrl(\\n        #     self, -1, pos=(100, 100))\\n        # self.text1 = wx.StaticText(self, 2, caption)\\n        # self.input1 = wx.TextCtrl(\\n        #     self, 2)\\n        # # self.input.SetInitialSize(size=(500, 60))\\n        # self.buttons = self.CreateButtonSizer(wx.OK | wx.CANCEL)\\n        # self.sizer = wx.BoxSizer(wx.VERTICAL)\\n        # self.sizer.Add(self.text, 0, wx.ALL, 5)\\n        # self.sizer.Add(self.input, 1, wx.EXPAND | wx.ALL, 5)\\n        # self.sizer.Add(self.text1, 2, wx.ALL, 6)\\n        # self.sizer.Add(self.input1, 3, wx.EXPAND | wx.ALL, 6)\\n        # self.sizer.Add(self.buttons, 0, wx.EXPAND | wx.ALL, 5)\\n        # self.SetSizerAndFit(self.sizer)\\n        # self.Center()\\n\\n    def SetValue(self, value):\\n        self.input.SetValue(value)\\n\\n    def GetValue(self):\\n        return self.input.GetValue()\\n\\n    def GetText(self):\\n        return self.input.LabelText\\n\\n\\nip = ''\\n\\nbutton = wx.Button(frame, 0, \\\"连接\\\", pos=(100, 150))\\n\\n\\ndef startssh(self):\\n    lab.SetEditable(False)\\n    global resultStdout\\n    ssh.connect(ip,\\n                username=str(usernameinput.GetValue()), password=str(passwordinput.GetValue()))\\n    stdin, resultStdout, stderr = ssh.exec_command(\\n        'echo $$; exec '+'~\u002FDocuments\u002Fwork\u002Fxcodebuild.sh')\\n    # 接受返回值pid 方便关闭应用\\n    pid = resultStdout.readline()\\n    TestThread()\\n    lab.Show()\\n    ulab.Hide()\\n    plab.Hide()\\n    usernameinput.Hide()\\n    passwordinput.Hide()\\n    button.Hide()\\n\\n\\nlab = wx.TextCtrl(frame, 0, \\\"正在连接\\\\n\\\",\\n                  pos=(10, 10), size=(780, 580), style=wx.BORDER_SIMPLE | wx.TE_MULTILINE | wx.HSCROLL | wx.TE_WORDWRAP)\\nlab.Hide()\\n\\nulab = wx.StaticText(frame, -1, \\\"用户名\\\", pos=(10, 10))\\nplab = wx.StaticText(frame, -1, \\\"密码\\\",  pos=(10, 80))\\n\\n\\nusernameinput = wx.TextCtrl(frame, 0, \\\"xxx\\\",\\n                            pos=(100, 10), size=(200, 50))\\npasswordinput = wx.TextCtrl(frame, 0, \\\"123456\\\",\\n                            pos=(100, 80), size=(200, 50))\\n\\nbutton.Bind(wx.EVT_BUTTON, startssh, button)\\n\\ndialog = wx.TextEntryDialog(None, 'IP', '连接ssh',\\n                            style=wx.TE_MULTILINE | wx.OK | wx.CANCEL)\\ndialog.SetInitialSize(size=(500, 200))\\ndialog.SetValue(\\\"192.168.7.16\\\")\\nif dialog.ShowModal() == wx.ID_OK:\\n    ip = dialog.GetValue()\\n    print(\\\"ok\\\")\\n    dialog.Destroy()\\n\\n\\nelse:\\n    print(dialog.Destroy())\\n    app.ExitMainLoop()\\n    exit(0)\\n\\n\\n# 启动子线程\\ndialog.Destroy()\\n\\napp.MainLoop()\\n\\n\\n```\\n\\n\\n接下来是打包脚本代码\\n```\\n#ios工程目录名称\\niosproject=xxx-ios\\nSCHEMENAME=xxx\\nWORKSPACE=xxx\\n\\nrm -rf ~\u002FDesktop\u002F${SCHEMENAME}\\n\\nsecurity -v unlock-keychain -p \\\"123456\\\" ~\u002FLibrary\u002FKeychains\u002Flogin.keychain\\n\\nWORKSPACE=~\u002FDocuments\u002Fwork\u002F${iosproject}\u002F${WORKSPACE}.xcworkspace\\ncd ~\u002FDocuments\u002Fwork\u002F${iosproject}\\ngit pull\\npod install\\nxcodebuild -workspace ${WORKSPACE} -scheme ${SCHEMENAME} clean\\n\\n#编译工程\\nxcodebuild archive -workspace ${WORKSPACE} -scheme ${SCHEMENAME} -configuration Release -archivePath ~\u002FDesktop\u002F${SCHEMENAME}\u002F${SCHEMENAME}\\n\\n#导出企业版本ipa\\nxcodebuild -exportArchive -archivePath ~\u002FDesktop\u002F${SCHEMENAME}\u002F${SCHEMENAME}.xcarchive -exportPath ~\u002FDesktop\u002F${SCHEMENAME}\u002FIPA\u002F -exportOptionsPlist ~\u002FDocuments\u002Fwork\u002FexprotOptionsPlist_enterprise.plist\\n\\n#userPath=$(cd ~; pwd)\\n##上传蒲公英\\n#curl -F \\\"file=@${userPath}\u002FDesktop\u002F${SCHEMENAME}\u002FIPA\u002F${SCHEMENAME}.ipa\\\" \\\\\\n#-F \\\"uKey=xxx\\\" \\\\\\n#-F \\\"_api_key=xxxx\\\" \\\\\\n#https:\u002F\u002Fqiniu-storage.pgyer.com\u002Fapiv1\u002Fapp\u002Fupload\\n\\n\\n\\n#需要安装fir-cli 安装方法 https:\u002F\u002Fgithub.com\u002FFIRHQ\u002Ffir-cli\u002Fblob\u002Fmaster\u002FREADME.md\\nfir login -T xxx\\nfir publish ~\u002FDesktop\u002F${SCHEMENAME}\u002FIPA\u002F${SCHEMENAME}.ipa\\n\\n#!\u002Fbin\u002Fbash\\nemail_reciver1=\\\"xx@qq.com\\\"\\n#发送者邮箱\\nemail_sender=x@163.com\\n#邮箱用户名\\nemail_username=x@163.com\\n#邮箱密码\\n#使用qq邮箱进行发送需要注意：首先需要开启：POP3\u002FSMTP服务，其次发送邮件的密码需要使用在开启POP3\u002FSMTP服务时候腾讯提供的第三方客户端登陆码。\\nemail_password=x\\n\\nemail_title=$iosproject\\\" 新版本 iOS客户端 \\\"\\nemail_content=\\\"新版本 iOS客户端 已上传fir\\\"\\nsendEmail -f ${email_sender} -t ${email_reciver1}  -s ${email_smtphost} -u ${email_title} -xu ${email_username} -xp ${email_password} -m \\\"$email_content\\\"  -o message-charset=utf-8\\n\\n\\n\\n```\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-75bc457b.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-1f857193.mjs" crossorigin></script>
 </body>
 
 </html>

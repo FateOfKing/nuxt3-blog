@@ -2,11 +2,53 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-b14839fd.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.2a29b0d9.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-163bd384.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-c4acfac6.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-ab26afcb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-072f1a66.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-0e0471c6.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-6392a269.mjs"><link rel="stylesheet" href="/_nuxt/entry.2a29b0d9.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-75bc457b.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.20072ffb.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-1f857193.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-726819bb.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-274aff02.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-142f2fef.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-f522a8b8.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-8fd6e8fe.mjs"><link rel="stylesheet" href="/_nuxt/entry.20072ffb.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-62915858><div class="flex justify-center bg-black-bg-color" data-v-62915858 data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-62915858><div class="center bg-white mt-5 p-5" data-v-62915858><div data-v-62915858><div class="text-black text-xl font-bold text-center" data-v-62915858></div><div class="text-sm text-gray-400 text-center mt-3" data-v-62915858></div><div data-v-62915858></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-b14839fd.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-163bd384.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-f59aa03c><div class="flex justify-center bg-black-bg-color" data-v-f59aa03c data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-f59aa03c><div class="center bg-white mt-5 p-5" data-v-f59aa03c><div data-v-f59aa03c><div class="text-black text-xl font-bold text-center" data-v-f59aa03c>weex笔记（2）weex使用navigator跳转到bundle中js</div><div class="text-sm text-gray-400 text-center mt-3" data-v-f59aa03c>2020-7-17</div><div data-v-f59aa03c><p>路径获取：<a href="https://github.com/apache/incubator-weex/blob/master/examples/vue/include/base-url.js">官方地址</a></p>
+<pre><code>exports.getBaseURL = <span class="hljs-keyword">function</span> (vm) {
+  var bundleUrl = weex.config.bundleUrl;
+  var nativeBase;
+  var isAndroidAssets = bundleUrl.indexOf(<span class="hljs-string">&#x27;your_current_IP&#x27;</span>) &gt;= <span class="hljs-number">0</span> || bundleUrl.indexOf(<span class="hljs-string">&#x27;file://assets/&#x27;</span>)&gt;=<span class="hljs-number">0</span>;
+  var isiOSAssets = bundleUrl.indexOf(<span class="hljs-string">&#x27;file:///&#x27;</span>) &gt;= <span class="hljs-number">0</span> &amp;&amp; bundleUrl.indexOf(<span class="hljs-string">&#x27;WeexDemo.app&#x27;</span>) &gt; <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">if</span> (isAndroidAssets) {
+    nativeBase = <span class="hljs-string">&#x27;file://assets/&#x27;</span>;
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isiOSAssets) {
+    <span class="hljs-regexp">//</span> file:<span class="hljs-regexp">//</span><span class="hljs-regexp">/var/m</span>obile<span class="hljs-regexp">/Containers/</span>Bundle<span class="hljs-regexp">/Application/</span>{id}<span class="hljs-regexp">/WeexDemo.app/</span>
+    <span class="hljs-regexp">//</span> file:<span class="hljs-regexp">//</span><span class="hljs-regexp">/Users/</span>{user}<span class="hljs-regexp">/Library/</span>Developer<span class="hljs-regexp">/CoreSimulator/</span>Devices<span class="hljs-regexp">/{id}/</span>data<span class="hljs-regexp">/Containers/</span>Bundle<span class="hljs-regexp">/Application/</span>{id}<span class="hljs-regexp">/WeexDemo.app/</span>
+    nativeBase = bundleUrl.substring(<span class="hljs-number">0</span>, bundleUrl.lastIndexOf(<span class="hljs-string">&#x27;/&#x27;</span>) + <span class="hljs-number">1</span>);
+  }
+  <span class="hljs-keyword">else</span> {
+    var host = <span class="hljs-string">&#x27;localhost:12580&#x27;</span>;
+    var matches = <span class="hljs-regexp">/\/\/([^\/]+?)\//</span>.exec(weex.config.bundleUrl);
+    <span class="hljs-keyword">if</span> (matches &amp;&amp; matches.length &gt;= <span class="hljs-number">2</span>) {
+      host = matches[<span class="hljs-number">1</span>];
+    }
+    nativeBase = <span class="hljs-string">&#x27;http://&#x27;</span> + host + <span class="hljs-string">&#x27;/&#x27;</span> + vm.dir + <span class="hljs-string">&#x27;/build/&#x27;</span>;
+  }
+  var h5Base = <span class="hljs-string">&#x27;./index.html?page=./&#x27;</span> + vm.dir + <span class="hljs-string">&#x27;/build/&#x27;</span>;
+  <span class="hljs-regexp">//</span> <span class="hljs-keyword">in</span> Native
+  var base = nativeBase;
+  <span class="hljs-keyword">if</span> (typeof window === <span class="hljs-string">&#x27;object&#x27;</span>) {
+    <span class="hljs-regexp">//</span> <span class="hljs-keyword">in</span> Browser or WebView
+    base = h5Base;
+  }
+  return base
+}
+</code></pre>
+<p>声明navigator</p>
+<pre><code>    <span class="hljs-keyword">var</span> navigator = weex.requireModule(<span class="hljs-string">&#x27;navigator&#x27;</span>);
+</code></pre>
+<p>使用navigator</p>
+<pre><code>navigator.push({
+                    url:baseurl+<span class="hljs-symbol">&#x27;login</span>.js&#x27;
+                }, event =&gt;{
+
+                })
+</code></pre>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323062228":{data:"{\"getArticle\":{\"id\":45,\"title\":\"weex笔记（2）weex使用navigator跳转到bundle中js\",\"article_content\":\"路径获取：[官方地址](https:\u002F\u002Fgithub.com\u002Fapache\u002Fincubator-weex\u002Fblob\u002Fmaster\u002Fexamples\u002Fvue\u002Finclude\u002Fbase-url.js)\\n```\\nexports.getBaseURL = function (vm) {\\n  var bundleUrl = weex.config.bundleUrl;\\n  var nativeBase;\\n  var isAndroidAssets = bundleUrl.indexOf('your_current_IP') \u003E= 0 || bundleUrl.indexOf('file:\u002F\u002Fassets\u002F')\u003E=0;\\n  var isiOSAssets = bundleUrl.indexOf('file:\u002F\u002F\u002F') \u003E= 0 && bundleUrl.indexOf('WeexDemo.app') \u003E 0;\\n  if (isAndroidAssets) {\\n    nativeBase = 'file:\u002F\u002Fassets\u002F';\\n  }\\n  else if (isiOSAssets) {\\n    \u002F\u002F file:\u002F\u002F\u002Fvar\u002Fmobile\u002FContainers\u002FBundle\u002FApplication\u002F{id}\u002FWeexDemo.app\u002F\\n    \u002F\u002F file:\u002F\u002F\u002FUsers\u002F{user}\u002FLibrary\u002FDeveloper\u002FCoreSimulator\u002FDevices\u002F{id}\u002Fdata\u002FContainers\u002FBundle\u002FApplication\u002F{id}\u002FWeexDemo.app\u002F\\n    nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('\u002F') + 1);\\n  }\\n  else {\\n    var host = 'localhost:12580';\\n    var matches = \u002F\\\\\u002F\\\\\u002F([^\\\\\u002F]+?)\\\\\u002F\u002F.exec(weex.config.bundleUrl);\\n    if (matches && matches.length \u003E= 2) {\\n      host = matches[1];\\n    }\\n    nativeBase = 'http:\u002F\u002F' + host + '\u002F' + vm.dir + '\u002Fbuild\u002F';\\n  }\\n  var h5Base = '.\u002Findex.html?page=.\u002F' + vm.dir + '\u002Fbuild\u002F';\\n  \u002F\u002F in Native\\n  var base = nativeBase;\\n  if (typeof window === 'object') {\\n    \u002F\u002F in Browser or WebView\\n    base = h5Base;\\n  }\\n  return base\\n}\\n```\\n声明navigator\\n```\\n    var navigator = weex.requireModule('navigator');\\n```\\n使用navigator\\n```\\nnavigator.push({\\n                    url:baseurl+'login.js'\\n                }, event =\u003E{\\n\\n                })\\n```\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-75bc457b.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-1f857193.mjs" crossorigin></script>
 </body>
 
 </html>

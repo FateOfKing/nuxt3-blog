@@ -2,11 +2,44 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-b14839fd.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.2a29b0d9.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-163bd384.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-c4acfac6.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-ab26afcb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-072f1a66.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-0e0471c6.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-6392a269.mjs"><link rel="stylesheet" href="/_nuxt/entry.2a29b0d9.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-75bc457b.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.20072ffb.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-1f857193.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-726819bb.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-274aff02.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-142f2fef.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-f522a8b8.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-8fd6e8fe.mjs"><link rel="stylesheet" href="/_nuxt/entry.20072ffb.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-62915858><div class="flex justify-center bg-black-bg-color" data-v-62915858 data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-62915858><div class="center bg-white mt-5 p-5" data-v-62915858><div data-v-62915858><div class="text-black text-xl font-bold text-center" data-v-62915858></div><div class="text-sm text-gray-400 text-center mt-3" data-v-62915858></div><div data-v-62915858></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-b14839fd.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-163bd384.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-f59aa03c><div class="flex justify-center bg-black-bg-color" data-v-f59aa03c data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-f59aa03c><div class="center bg-white mt-5 p-5" data-v-f59aa03c><div data-v-f59aa03c><div class="text-black text-xl font-bold text-center" data-v-f59aa03c>iView拦截Modal对话框方法</div><div class="text-sm text-gray-400 text-center mt-3" data-v-f59aa03c>2020-7-17</div><div data-v-f59aa03c><p>最近做一个公司内部项目，使用iView框架，遇到了一个问题，弹框关闭之前如果用户有输入数据需要二次确认是否关闭窗口。
+多番搜索无果，又去研究了一遍API。好不容易找到了方法，和大家分享一下。
+首先看Modal的两个个API
+<code>Modal props</code>的<code>value</code> 用来显示和关闭弹框的。
+<code>Modal events</code>的<code>on-visible-change</code> 用来监听弹框开启和关闭</p>
+<p>思路：
+在<code>on-visible-change</code>监听到弹框关闭并且弹框内有值，那么将<code>value </code>属性设置为<code>true</code>阻止关闭，并且用<code>this.$Modal.confirm()</code>方法弹出新的弹框，让用户处理。</p>
+<p>代码片段如下：
+Method方法</p>
+<pre><code><span class="hljs-title function_">onVisibleChange</span>(<span class="hljs-params">value</span>) {
+      <span class="hljs-keyword">if</span> (
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">resultData</span> != <span class="hljs-literal">undefined</span> &amp;&amp;
+        !value &amp;&amp;
+        !<span class="hljs-variable language_">this</span>.<span class="hljs-property">secondConfirmExit</span>
+      ) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">modalDisplay</span> = <span class="hljs-literal">true</span>;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">$Modal</span>.<span class="hljs-title function_">confirm</span>({
+          <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;提示&quot;</span>,
+          <span class="hljs-attr">content</span>:
+            <span class="hljs-string">&quot;&lt;p&gt;新增流程尚未完成，&lt;/p&gt;&lt;div&gt;&lt;span&gt;是否需要&lt;/span&gt;&lt;span style=&#x27;color:#ef4836&#x27;&gt;关闭窗口&lt;/span&gt;&lt;span&gt;？&lt;/span&gt;&lt;/div&gt;&quot;</span>,
+          <span class="hljs-attr">okText</span>: <span class="hljs-string">&quot;关闭&quot;</span>,
+          <span class="hljs-attr">cancelText</span>: <span class="hljs-string">&quot;取消&quot;</span>,
+          <span class="hljs-attr">closable</span>: <span class="hljs-literal">true</span>,
+          <span class="hljs-attr">zIndex</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-attr">onCancel</span>: <span class="hljs-function">() =&gt;</span> {
+          <span class="hljs-comment">//重置数据</span>
+        }, <span class="hljs-number">300</span>);
+      }
+    },
+</code></pre>
+<p>代码解释：<code>resultData</code>是弹框中数据，<code>secondConfirmExit</code>是否二次确认过，<code>modalDisplay</code>控制弹框开启和关闭的value。</p>
+<p>Modal写法我就不写了。
+熟悉iView的Modal控件的应该都能看懂。不懂的可以留言。</p>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061139":{data:"{\"getArticle\":{\"id\":35,\"title\":\"iView拦截Modal对话框方法\",\"article_content\":\"最近做一个公司内部项目，使用iView框架，遇到了一个问题，弹框关闭之前如果用户有输入数据需要二次确认是否关闭窗口。\\n多番搜索无果，又去研究了一遍API。好不容易找到了方法，和大家分享一下。\\n首先看Modal的两个个API\\n`Modal props`的`value` 用来显示和关闭弹框的。\\n`Modal events`的`on-visible-change` 用来监听弹框开启和关闭\\n\\n思路：\\n在`on-visible-change`监听到弹框关闭并且弹框内有值，那么将`value `属性设置为`true`阻止关闭，并且用`this.$Modal.confirm()`方法弹出新的弹框，让用户处理。\\n\\n\\n代码片段如下：\\nMethod方法\\n```\\nonVisibleChange(value) {\\n      if (\\n        this.resultData != undefined &&\\n        !value &&\\n        !this.secondConfirmExit\\n      ) {\\n        this.modalDisplay = true;\\n        this.$Modal.confirm({\\n          title: \\\"提示\\\",\\n          content:\\n            \\\"\u003Cp\u003E新增流程尚未完成，\u003C\u002Fp\u003E\u003Cdiv\u003E\u003Cspan\u003E是否需要\u003C\u002Fspan\u003E\u003Cspan style='color:#ef4836'\u003E关闭窗口\u003C\u002Fspan\u003E\u003Cspan\u003E？\u003C\u002Fspan\u003E\u003C\u002Fdiv\u003E\\\",\\n          okText: \\\"关闭\\\",\\n          cancelText: \\\"取消\\\",\\n          closable: true,\\n          zIndex: 1,\\n          onCancel: () =\u003E {\\n          \u002F\u002F重置数据\\n        }, 300);\\n      }\\n    },\\n```\\n代码解释：`resultData`是弹框中数据，`secondConfirmExit`是否二次确认过，`modalDisplay`控制弹框开启和关闭的value。\\n\\nModal写法我就不写了。\\n熟悉iView的Modal控件的应该都能看懂。不懂的可以留言。\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-75bc457b.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-1f857193.mjs" crossorigin></script>
 </body>
 
 </html>

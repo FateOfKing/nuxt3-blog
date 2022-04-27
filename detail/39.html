@@ -2,11 +2,34 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-b14839fd.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.2a29b0d9.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-163bd384.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-c4acfac6.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-ab26afcb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-072f1a66.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-0e0471c6.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-6392a269.mjs"><link rel="stylesheet" href="/_nuxt/entry.2a29b0d9.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-75bc457b.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.20072ffb.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-1f857193.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-726819bb.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-274aff02.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-142f2fef.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-f522a8b8.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-8fd6e8fe.mjs"><link rel="stylesheet" href="/_nuxt/entry.20072ffb.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-62915858><div class="flex justify-center bg-black-bg-color" data-v-62915858 data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-62915858><div class="center bg-white mt-5 p-5" data-v-62915858><div data-v-62915858><div class="text-black text-xl font-bold text-center" data-v-62915858></div><div class="text-sm text-gray-400 text-center mt-3" data-v-62915858></div><div data-v-62915858></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-b14839fd.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-163bd384.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-f59aa03c><div class="flex justify-center bg-black-bg-color" data-v-f59aa03c data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-f59aa03c><div class="center bg-white mt-5 p-5" data-v-f59aa03c><div data-v-f59aa03c><div class="text-black text-xl font-bold text-center" data-v-f59aa03c>Vue-js引用警告-&quot;export-&#39;default&#39;-(imported-as-&#39;Api&#39;)-was-not-found-in-&#39;--a</div><div class="text-sm text-gray-400 text-center mt-3" data-v-f59aa03c>2020-7-17</div><div data-v-f59aa03c><p>问题截图：
+<img src="https://upload-images.jianshu.io/upload_images/12634286-454e9c192c971157.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>问题原因：ES6 编译器识别问题。</p>
+<h4 id="方法1：修改引用js的地方">方法1：修改引用js的地方</h4>
+<p>将<code>import  Api from &#39;./api&#39;</code>
+改成<code>import * as Api from &#39;./api&#39;</code></p>
+<p>在<code>api.js</code>中写法</p>
+<pre><code><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTestAPI</span><span class="hljs-params">()</span> <span class="hljs-comment">{
+    xxx
+}</span></span>
+</code></pre>
+<h4 id="方法2：修改js文件中的function">方法2：修改js文件中的function</h4>
+<p>改成</p>
+<pre><code><span class="hljs-keyword">exports</span>.getTestAPI = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-comment">{
+ xxxx
+}</span></span>
+</code></pre>
+<h4 id="方法3：修改js文件export方式">方法3：修改js文件export方式</h4>
+<pre><code> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getTestAPI</span>(<span class="hljs-params"></span>) {xxx}
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>{
+    getTestAPI
+}
+</code></pre>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061271":{data:"{\"getArticle\":{\"id\":39,\"title\":\"Vue-js引用警告-\\\"export-'default'-(imported-as-'Api')-was-not-found-in-'--a\",\"article_content\":\"问题截图：\\n![image.png](https:\u002F\u002Fupload-images.jianshu.io\u002Fupload_images\u002F12634286-454e9c192c971157.png?imageMogr2\u002Fauto-orient\u002Fstrip%7CimageView2\u002F2\u002Fw\u002F1240)\\n \\n问题原因：ES6 编译器识别问题。\\n\\n#### 方法1：修改引用js的地方\\n将```import  Api from '.\u002Fapi'```\\n改成```import * as Api from '.\u002Fapi'```\\n\\n在`api.js`中写法\\n```\\nexport function getTestAPI() {\\n    xxx\\n}\\n```\\n\\n#### 方法2：修改js文件中的function\\n改成\\n ```\\nexports.getTestAPI = function () {\\n  xxxx\\n}\\n```\\n\\n#### 方法3：修改js文件export方式\\n```\\n function getTestAPI() {xxx}\\n export default{\\n    getTestAPI\\n}\\n```\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-75bc457b.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-1f857193.mjs" crossorigin></script>
 </body>
 
 </html>
