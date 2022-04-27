@@ -2,114 +2,11 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>利用NSURLProtocol实现拦截URL，并简单实现WKWebView嗅探功能</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-16</div><div data-v-46bd053e><p>业余时间研究了一下手机迅雷的嗅探功能，感觉很神奇。于是想自己动手做一个。
-需求很简单：1.拦截并记录网页里所有的有<code>.m3u8</code>的链接  2.使用链接投屏到电视机</p>
-<h3 id="拦截网络请求">拦截网络请求</h3>
-<p>在iOS中，拦截网页的跳转URL可以使用<code>webview</code>的<code>delegate</code>中相应的方法，但是拦截<code>webview</code>中的网络请求就不行了。这个时候就要用到今天的主角<code>NSURLProtocol </code>。
-本文只实现拦截网络部分<code>NSURLProtocol </code>的使用。</p>
-<ol>
-<li>实例化<code>NSURLProtocol </code>
-<code>NSURLProtocol </code>不能直接使用需要继承子类去实例化。
-创建子类<code>SechemaURLProtocol</code>继承自<code>NSURLProtocol</code></li>
-</ol>
-<p>SechemaURLProtocol.h</p>
-<pre><code><span class="hljs-meta">#import <span class="hljs-string">&lt;Foundation/Foundation.h&gt;</span></span>
-<span class="hljs-meta">#import <span class="hljs-string">&quot;Constant.h&quot;</span></span>
-
-FOUNDATION_EXTERN <span class="hljs-built_in">NSString</span> *<span class="hljs-keyword">const</span> HttpProtocolKey;
-FOUNDATION_EXTERN <span class="hljs-built_in">NSString</span> *<span class="hljs-keyword">const</span> HttpsProtocolKey;
-
-<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">SechemaURLProtocol</span> : <span class="hljs-title">NSURLProtocol</span></span>
-
-<span class="hljs-keyword">@end</span>
-</code></pre>
-<p>实现SechemaURLProtocol.m</p>
-<pre><code>- (<span class="hljs-type">void</span>)startLoading{}
-- (<span class="hljs-type">void</span>)stopLoading{}
-+ (<span class="hljs-type">BOOL</span>)canInitWithRequest:(<span class="hljs-built_in">NSURLRequest</span> *)request
-{
-    <span class="hljs-built_in">NSString</span> *scheme = [[request URL] scheme];
-
-    <span class="hljs-keyword">if</span> ([request.URL.absoluteString containsString:<span class="hljs-string">@&quot;.m3u8&quot;</span>]) {
-        [[<span class="hljs-built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="hljs-string">@&quot;showURL&quot;</span> object:request.URL.absoluteString];
-
-    }
-    <span class="hljs-comment">// 判断是否需要进入自定义加载器</span>
-    <span class="hljs-keyword">if</span> ([scheme caseInsensitiveCompare:HttpProtocolKey] == <span class="hljs-built_in">NSOrderedSame</span> ||
-        [scheme caseInsensitiveCompare:HttpsProtocolKey] == <span class="hljs-built_in">NSOrderedSame</span>)
-    {
-        <span class="hljs-comment">//看看是否已经处理过了，防止无限循环</span>
-        <span class="hljs-keyword">if</span> ([<span class="hljs-built_in">NSURLProtocol</span> propertyForKey:kURLProtocolHandledKey inRequest:request]) {
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">NO</span>;
-        }
-    }
-    
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">YES</span>;
-}
-</code></pre>
-<p><code>canInitWithRequest </code>所有网络请求都会走这个方法，在这里分析所有URL并且将信息传递到其他类中。</p>
-<p>在<code>webview</code>的类中注册
-<code>    [NSURLProtocol registerClass:[SechemaURLProtocol class]];</code></p>
-<p>接收通知消息
-<code>    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showURL:) name:@&quot;showURL&quot; object:nil];</code></p>
-<p>解析URL,并显示相应的URL</p>
-<pre><code><span class="hljs-operator">-</span>(void)showURL:(<span class="hljs-type">NSNotification</span> <span class="hljs-operator">*</span>)not{
-    <span class="hljs-type">NSString</span> <span class="hljs-operator">*</span>string <span class="hljs-operator">=</span> not.object;
-    <span class="hljs-type">NSInteger</span> count <span class="hljs-operator">=</span> [[not.object mutableCopy] replaceOccurrencesOfString:@<span class="hljs-string">&quot;https://&quot;</span> <span class="hljs-comment">// 要查询的字符串中的某个字符</span>
-                                                                withString:not.object
-                                                                   options:<span class="hljs-type">NSLiteralSearch</span>
-                                                                     range:<span class="hljs-type">NSMakeRange</span>(<span class="hljs-number">0</span>, [not.object length])];
-    <span class="hljs-keyword">if</span> (count <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span>) {
-        [<span class="hljs-keyword">self</span>.dic setObject:string forKey:string];
-        <span class="hljs-type">NSArray</span> <span class="hljs-operator">*</span>arr <span class="hljs-operator">=</span> [string componentsSeparatedByString:@<span class="hljs-string">&quot;https://&quot;</span>];
-        
-        int current <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (int i <span class="hljs-operator">=</span> <span class="hljs-number">0</span> ; i<span class="hljs-operator">&lt;</span>arr.count; i<span class="hljs-operator">++</span>) {
-            
-            current<span class="hljs-operator">++</span>;
-            <span class="hljs-keyword">if</span> ([arr[i] length]<span class="hljs-operator">==</span><span class="hljs-number">0</span>) {
-                <span class="hljs-keyword">continue</span>;
-            }
-            <span class="hljs-type">NSString</span> <span class="hljs-operator">*</span>tmp<span class="hljs-operator">=</span>@<span class="hljs-string">&quot;&quot;</span>;
-            <span class="hljs-keyword">for</span> (int j<span class="hljs-operator">=</span><span class="hljs-number">0</span>; j<span class="hljs-operator">&lt;</span>arr.count; j<span class="hljs-operator">++</span>) {
-                <span class="hljs-keyword">if</span> (j<span class="hljs-operator">==</span>current) {
-                    tmp <span class="hljs-operator">=</span> [[tmp stringByAppendingString:@<span class="hljs-string">&quot;https://&quot;</span>] stringByAppendingString:arr[j]];
-                }
-            }
-            <span class="hljs-keyword">if</span> (tmp.length <span class="hljs-operator">!=</span><span class="hljs-number">0</span>) {
-                [<span class="hljs-keyword">self</span>.dic setObject:tmp forKey:tmp];
-            }
-            
-            
-        }
-        
-    }<span class="hljs-keyword">else</span>
-    {
-        [<span class="hljs-keyword">self</span>.dic setObject:string forKey:string];
-    }
-    [<span class="hljs-keyword">self</span>.tableView reloadData];
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">self</span>.backgroundView.hidden <span class="hljs-operator">||</span> <span class="hljs-keyword">self</span>.leftcon.constant <span class="hljs-operator">==</span> <span class="hljs-type">UIScreen</span>.mainScreen.bounds.size.width) {
-        [<span class="hljs-keyword">self</span>.view bringSubviewToFront:<span class="hljs-keyword">self</span>.btn];
-
-        [<span class="hljs-keyword">self</span>.view bringSubviewToFront:<span class="hljs-keyword">self</span>.backgroundView];
-        <span class="hljs-keyword">self</span>.backgroundView.hidden <span class="hljs-operator">=</span> <span class="hljs-type">NO</span>;
-        
-        [<span class="hljs-type">UIView</span> animateWithDuration:<span class="hljs-number">1</span> animations:<span class="hljs-operator">^</span>{
-            <span class="hljs-keyword">self</span>.leftcon.constant <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
-            [<span class="hljs-keyword">self</span>.view layoutIfNeeded];
-        }];
-    }
-}
-</code></pre>
-<p>完整代码地址 <a href="https://github.com/FateOfKing/iOSTool">Github</a>
-后续还把网页嗅探功能优化了一下，点击m3u8自动投屏到电视机。
-其他还有一些小工具 投屏，WiFi切换等。
-如有什么好的点子可以告诉我哦~</p>
-</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323059027":{data:"{\"getArticle\":{\"id\":17,\"title\":\"利用NSURLProtocol实现拦截URL，并简单实现WKWebView嗅探功能\",\"article_content\":\"业余时间研究了一下手机迅雷的嗅探功能，感觉很神奇。于是想自己动手做一个。\\n需求很简单：1.拦截并记录网页里所有的有`.m3u8`的链接  2.使用链接投屏到电视机\\n### 拦截网络请求\\n在iOS中，拦截网页的跳转URL可以使用`webview`的`delegate`中相应的方法，但是拦截`webview`中的网络请求就不行了。这个时候就要用到今天的主角`NSURLProtocol `。\\n本文只实现拦截网络部分`NSURLProtocol `的使用。\\n1. 实例化`NSURLProtocol `\\n`NSURLProtocol `不能直接使用需要继承子类去实例化。\\n创建子类`SechemaURLProtocol`继承自`NSURLProtocol`\\n\\nSechemaURLProtocol.h\\n```\\n#import \u003CFoundation\u002FFoundation.h\u003E\\n#import \\\"Constant.h\\\"\\n\\nFOUNDATION_EXTERN NSString *const HttpProtocolKey;\\nFOUNDATION_EXTERN NSString *const HttpsProtocolKey;\\n\\n@interface SechemaURLProtocol : NSURLProtocol\\n\\n@end\\n```\\n\\n实现SechemaURLProtocol.m\\n```\\n- (void)startLoading{}\\n- (void)stopLoading{}\\n+ (BOOL)canInitWithRequest:(NSURLRequest *)request\\n{\\n    NSString *scheme = [[request URL] scheme];\\n\\n    if ([request.URL.absoluteString containsString:@\\\".m3u8\\\"]) {\\n        [[NSNotificationCenter defaultCenter] postNotificationName:@\\\"showURL\\\" object:request.URL.absoluteString];\\n\\n    }\\n    \u002F\u002F 判断是否需要进入自定义加载器\\n    if ([scheme caseInsensitiveCompare:HttpProtocolKey] == NSOrderedSame ||\\n        [scheme caseInsensitiveCompare:HttpsProtocolKey] == NSOrderedSame)\\n    {\\n        \u002F\u002F看看是否已经处理过了，防止无限循环\\n        if ([NSURLProtocol propertyForKey:kURLProtocolHandledKey inRequest:request]) {\\n            return NO;\\n        }\\n    }\\n    \\n    return YES;\\n}\\n```\\n`canInitWithRequest `所有网络请求都会走这个方法，在这里分析所有URL并且将信息传递到其他类中。\\n\\n在`webview`的类中注册\\n`    [NSURLProtocol registerClass:[SechemaURLProtocol class]];`\\n\\n接收通知消息\\n`    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showURL:) name:@\\\"showURL\\\" object:nil];`\\n\\n解析URL,并显示相应的URL\\n```\\n-(void)showURL:(NSNotification *)not{\\n    NSString *string = not.object;\\n    NSInteger count = [[not.object mutableCopy] replaceOccurrencesOfString:@\\\"https:\u002F\u002F\\\" \u002F\u002F 要查询的字符串中的某个字符\\n                                                                withString:not.object\\n                                                                   options:NSLiteralSearch\\n                                                                     range:NSMakeRange(0, [not.object length])];\\n    if (count \u003E 1) {\\n        [self.dic setObject:string forKey:string];\\n        NSArray *arr = [string componentsSeparatedByString:@\\\"https:\u002F\u002F\\\"];\\n        \\n        int current = 0;\\n        for (int i = 0 ; i\u003Carr.count; i++) {\\n            \\n            current++;\\n            if ([arr[i] length]==0) {\\n                continue;\\n            }\\n            NSString *tmp=@\\\"\\\";\\n            for (int j=0; j\u003Carr.count; j++) {\\n                if (j==current) {\\n                    tmp = [[tmp stringByAppendingString:@\\\"https:\u002F\u002F\\\"] stringByAppendingString:arr[j]];\\n                }\\n            }\\n            if (tmp.length !=0) {\\n                [self.dic setObject:tmp forKey:tmp];\\n            }\\n            \\n            \\n        }\\n        \\n    }else\\n    {\\n        [self.dic setObject:string forKey:string];\\n    }\\n    [self.tableView reloadData];\\n    if (self.backgroundView.hidden || self.leftcon.constant == UIScreen.mainScreen.bounds.size.width) {\\n        [self.view bringSubviewToFront:self.btn];\\n\\n        [self.view bringSubviewToFront:self.backgroundView];\\n        self.backgroundView.hidden = NO;\\n        \\n        [UIView animateWithDuration:1 animations:^{\\n            self.leftcon.constant = 0;\\n            [self.view layoutIfNeeded];\\n        }];\\n    }\\n}\\n```\\n\\n完整代码地址 [Github](https:\u002F\u002Fgithub.com\u002FFateOfKing\u002FiOSTool)\\n后续还把网页嗅探功能优化了一下，点击m3u8自动投屏到电视机。\\n其他还有一些小工具 投屏，WiFi切换等。\\n如有什么好的点子可以告诉我哦~\\n\",\"addTime\":1594877324,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323059027":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>

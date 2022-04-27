@@ -2,103 +2,11 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>JS处理Number类型遇到精度丢失（尤其是long类型）</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-17</div><div data-v-46bd053e><p>在项目中使用axios进行数据请求时，发现拿到的response中的id字段精度丢失，后端使用的是long类型。（注意chrome插件JsonView也有丢失精度问题）</p>
-<p>一共有三种方法解决。我用的是第一种。</p>
-<ul>
-<li>项目脚手架vue</li>
-</ul>
-<h3 id="使用jsonlint处理">使用Jsonlint处理</h3>
-<ul>
-<li><p>第一步
-安装 jison</p>
-<pre><code>npm <span class="hljs-keyword">install</span> jison
-</code></pre>
-</li>
-<li><p>第二步
-<a href="https://github.com/zaach/jsonlint/tree/master/src">这里</a>把 jsonlint.l、jsonlint.y 下载到本地项目中，如图：
-<img src="https://upload-images.jianshu.io/upload_images/12634286-88fda0cbd0cd8c97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</li>
-</ul>
-<p>这两个文件分别是 词表文件 - lexfile - jsonlint.l、语法文件 - grammFile - jsonlint.y</p>
-<p>修改 jsonlint.y 词法文件关于JSONNumber的这段代码：</p>
-<pre><code><span class="hljs-title class_">JSON</span><span class="hljs-built_in">Number</span>
-    : <span class="hljs-variable constant_">NUMBER</span>
-        {$$ = yytext == <span class="hljs-title class_">String</span>(<span class="hljs-title class_">Number</span>(yytext))? <span class="hljs-title class_">Number</span>(yytext): yytext;}
-    ;
-</code></pre>
-<ul>
-<li><p>第三步
-生成我们要的 jsonlint.js</p>
-<pre><code><span class="hljs-keyword">jison </span><span class="hljs-keyword">jsonlint.y </span><span class="hljs-keyword">jsonlint.l</span>
-</code></pre>
-</li>
-<li><p>第四步
-引入 jsonlint.js 至项目</p>
-</li>
-</ul>
-<pre><code><span class="hljs-keyword">import</span> jsonlint <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./utils/jsonlint&#x27;</span>
-</code></pre>
-<ul>
-<li>第五步
-在axios的transformResponse中处理数据
-<code>transformResponse</code> 在传递给 then/catch 前，允许修改响应数据<pre><code>const service = axios.create({
-baseURL: process.env.VUE_APP_BASE_API, <span class="hljs-regexp">//</span> url = base url + request url
-<span class="hljs-regexp">//</span> withCredentials: true, <span class="hljs-regexp">//</span> send cookies when cross-domain requests
-timeout: <span class="hljs-number">5000</span>, <span class="hljs-regexp">//</span> request timeout
-transformResponse: [<span class="hljs-keyword">function</span>(data) {
-  <span class="hljs-regexp">//</span> `transformResponse` 在传递给 then/catch 前，允许修改响应数据
-  return jsonlint.parse(data)
-}]
-})
-</code></pre>
-</li>
-</ul>
-<p><strong>这里有个坑</strong>
-在build后的项目会发现，无法引用到<code>jsonlint </code>
-这是因为这里使用了CommonJs写法，而在应用中并没有做相应的模块转换使得浏览器能够识别。
-若是babel 6, 可以看这位同仁的文章
-<a href="https://www.cnblogs.com/vickya/p/8645061.html">https://www.cnblogs.com/vickya/p/8645061.html</a></p>
-<p>若是babel 7 ， 设置
-<a href="https://www.babeljs.cn/docs/babel-preset-env">https://www.babeljs.cn/docs/babel-preset-env</a>
-babel7设置
-增加<code> [&#39;@babel/preset-env&#39;, { &#39;modules&#39;: &#39;commonjs&#39; }]</code></p>
-<pre><code><span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = {
-  presets: [
-    <span class="hljs-string">&#x27;@vue/app&#x27;</span>,
-    [<span class="hljs-string">&#x27;@babel/preset-env&#x27;</span>, { <span class="hljs-string">&#x27;modules&#x27;</span>: <span class="hljs-string">&#x27;commonjs&#x27;</span> }]
-  ]
-}
-</code></pre>
-<h3 id="使用json-bigint处理">使用json-bigint处理</h3>
-<ul>
-<li><p><code>npm i json-bigint</code></p>
-</li>
-<li><p>axios 配置项 <a href="https://github.com/axios/axios#request-config"><code>transformResponse</code></a> 处理返回结果</p>
-</li>
-</ul>
-<pre><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span>
-<span class="hljs-keyword">import</span> <span class="hljs-title class_">JSON</span>big <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;json-bigint&#x27;</span>
-
-<span class="hljs-keyword">const</span> request = axios.<span class="hljs-title function_">create</span>({
-  <span class="hljs-comment">// ... 其它配置</span>
-  
-  <span class="hljs-comment">// `transformResponse` allows changes to the response data to be made before</span>
-  <span class="hljs-comment">// it is passed to then/catch</span>
-  <span class="hljs-attr">transformResponse</span>: [<span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) {
-    <span class="hljs-comment">// Do whatever you want to transform the data</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>big.<span class="hljs-title function_">parse</span>(data)
-  }],
-  
-  <span class="hljs-comment">// ... 其它配置</span>
-})
-</code></pre>
-<h3 id="方法三">方法三</h3>
-<p>最简单。让后端把Long改成String型返回。</p>
-</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323062129":{data:"{\"getArticle\":{\"id\":42,\"title\":\"JS处理Number类型遇到精度丢失（尤其是long类型）\",\"article_content\":\"\\n在项目中使用axios进行数据请求时，发现拿到的response中的id字段精度丢失，后端使用的是long类型。（注意chrome插件JsonView也有丢失精度问题）\\n\\n一共有三种方法解决。我用的是第一种。\\n\\n- 项目脚手架vue\\n\\n### 使用Jsonlint处理\\n- 第一步\\n安装 jison\\n```\\nnpm install jison\\n```\\n\\n- 第二步\\n[这里](https:\u002F\u002Fgithub.com\u002Fzaach\u002Fjsonlint\u002Ftree\u002Fmaster\u002Fsrc)把 jsonlint.l、jsonlint.y 下载到本地项目中，如图：\\n![image.png](https:\u002F\u002Fupload-images.jianshu.io\u002Fupload_images\u002F12634286-88fda0cbd0cd8c97.png?imageMogr2\u002Fauto-orient\u002Fstrip%7CimageView2\u002F2\u002Fw\u002F1240)\\n\\n这两个文件分别是 词表文件 - lexfile - jsonlint.l、语法文件 - grammFile - jsonlint.y\\n\\n修改 jsonlint.y 词法文件关于JSONNumber的这段代码：\\n```\\nJSONNumber\\n    : NUMBER\\n        {$$ = yytext == String(Number(yytext))? Number(yytext): yytext;}\\n    ;\\n```\\n\\n- 第三步\\n生成我们要的 jsonlint.js\\n```\\njison jsonlint.y jsonlint.l\\n```\\n\\n- 第四步\\n引入 jsonlint.js 至项目\\n\\n```\\nimport jsonlint from '.\u002Futils\u002Fjsonlint'\\n```\\n\\n- 第五步\\n在axios的transformResponse中处理数据\\n`transformResponse` 在传递给 then\u002Fcatch 前，允许修改响应数据\\n```\\nconst service = axios.create({\\n  baseURL: process.env.VUE_APP_BASE_API, \u002F\u002F url = base url + request url\\n  \u002F\u002F withCredentials: true, \u002F\u002F send cookies when cross-domain requests\\n  timeout: 5000, \u002F\u002F request timeout\\n  transformResponse: [function(data) {\\n    \u002F\u002F `transformResponse` 在传递给 then\u002Fcatch 前，允许修改响应数据\\n    return jsonlint.parse(data)\\n  }]\\n})\\n```\\n\\n**这里有个坑**\\n在build后的项目会发现，无法引用到`jsonlint `\\n这是因为这里使用了CommonJs写法，而在应用中并没有做相应的模块转换使得浏览器能够识别。\\n若是babel 6, 可以看这位同仁的文章\\n[https:\u002F\u002Fwww.cnblogs.com\u002Fvickya\u002Fp\u002F8645061.html](https:\u002F\u002Fwww.cnblogs.com\u002Fvickya\u002Fp\u002F8645061.html)\\n\\n若是babel 7 ， 设置\\n[https:\u002F\u002Fwww.babeljs.cn\u002Fdocs\u002Fbabel-preset-env](https:\u002F\u002Fwww.babeljs.cn\u002Fdocs\u002Fbabel-preset-env)\\nbabel7设置\\n增加` ['@babel\u002Fpreset-env', { 'modules': 'commonjs' }]`\\n```\\nmodule.exports = {\\n  presets: [\\n    '@vue\u002Fapp',\\n    ['@babel\u002Fpreset-env', { 'modules': 'commonjs' }]\\n  ]\\n}\\n```\\n\\n### 使用json-bigint处理\\n\\n- ```npm i json-bigint```\\n\\n-   axios 配置项 [`transformResponse`](https:\u002F\u002Fgithub.com\u002Faxios\u002Faxios#request-config) 处理返回结果\\n\\n```\\nimport axios from 'axios'\\nimport JSONbig from 'json-bigint'\\n\\nconst request = axios.create({\\n  \u002F\u002F ... 其它配置\\n  \\n  \u002F\u002F `transformResponse` allows changes to the response data to be made before\\n  \u002F\u002F it is passed to then\u002Fcatch\\n  transformResponse: [function (data) {\\n    \u002F\u002F Do whatever you want to transform the data\\n    return JSONbig.parse(data)\\n  }],\\n  \\n  \u002F\u002F ... 其它配置\\n})\\n```\\n\\n### 方法三\\n最简单。让后端把Long改成String型返回。\\n\\n\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323062129":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>

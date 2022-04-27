@@ -2,91 +2,11 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>iOS开发-APP跳转微信公众号方法实现</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-16</div><div data-v-46bd053e><p>我是按照第一种方法做的。（想看效果下一个沪江网校APP在我的里面点击我的学生证即可查看）
-我直接下载了<a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319164&amp;token=&amp;lang=zh_CN">微信SDK1.8.3范例代码</a>一番配置后直接在代码中修改。
-主要分为三个步骤</p>
-<ol>
-<li><strong>发起微信消息订阅</strong>
- 在<code>SendMsgToWeChatViewController</code>中定位到<code>subscription</code>方法
-```</li>
-</ol>
-<ul>
-<li>(void)subscription
-{
-  [UIAlertView requestWithTitle:@&quot;请输入scene&quot; message:@&quot;scene&quot; defaultText:@&quot;1000&quot; sure:^(UIAlertView *alertView, NSString *text) {
-  UInt32 scene = (UInt32)[text integerValue];
-  [UIAlertView requestWithTitle:@&quot;输入templateId&quot; message:@&quot;templateId&quot; defaultText:@&quot;这里输入templateId&quot; sure:^(UIAlertView *alertView, NSString *text) {
-      NSString *templateId = text;
-<br>      [UIAlertView requestWithTitle:@&quot;请输入reserved&quot; message:nil defaultText:@&quot;&quot; sure:^(UIAlertView *alertView, NSString *text) {
-          NSString *reserved = text;
-<br>          WXSubscribeMsgReq *req = [[WXSubscribeMsgReq alloc] init];
-          req.scene = scene;
-          req.templateId = templateId;
-          req.reserved = reserved;
-<br>          [WXApi sendReq:req];
-      }];
-  }];
-  }];</li>
-</ul>
-<p>}</p>
-<pre><code>记得把```defaultText```改成你的APP一次性订阅消息的模板id
-<span class="hljs-title">具体各个属性有啥意思去[文档](https:</span>//open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=<span class="hljs-number">1</span>&amp;id=open1500434436_aWfqW&amp;token=&amp;lang=zh_CN)中找吧
-<span class="hljs-title">调用这个方法跳转微信，用户点击授权跳转回来会在```- (void)managerDidRecvSubscribeMsgResponse:</span>(WXSubscribeMsgResp *)response```获得```templateId``` ```openId``` ```scene```三个参数
-
-
-<span class="hljs-number">2</span>. **获取授权Token**
-GET调用接口获取AccessToken
-```https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET```
-</code></pre>
-<p>[Request getRequestByServiceUrl:@&quot;<a href="https://api.weixin.qq.com/cgi-bin/token?&quot;">https://api.weixin.qq.com/cgi-bin/token?&quot;</a>
-andApi:@&quot;grant_type=client_credential&amp;appid=appid&amp;secret=scret&quot; 
-andParams:nil 
-andCallBack:^(id  _Nonnull obj) {
- token = obj[@&quot;access_token&quot;];//accessToken
-}];</p>
-<pre><code><span class="hljs-number">3</span>. **发送订阅消息**
-基于前两步获得的```accessToken``` ```templateId``` ```openId``` ```scene```
-<span class="hljs-title">POST调用接口```https:</span>//api.weixin.qq.com/cgi-bin/message/template/subscribe?access_token=ACCESS_TOKEN``` 
-</code></pre>
-<p>[Request postRequestByServiceUrl:@&quot;<a href="https://api.weixin.qq.com/cgi-bin/message/template/subscribe?&quot;">https://api.weixin.qq.com/cgi-bin/message/template/subscribe?&quot;</a>
- andApi:[NSString stringWithFormat:@&quot;access_token=%@&quot;,obj[@&quot;access_token&quot;]] 
-andParams:@{@&quot;touser&quot;:response.openId,@&quot;template_id&quot;:response.templateId,@&quot;url&quot;:@&quot;<a href="http://www.baidu.com&quot;,@&quot;scene&quot;:%5BNSNumber">http://www.baidu.com&quot;,@&quot;scene&quot;:[NSNumber</a> numberWithInt:response.scene],@&quot;title&quot;:@&quot;消息&quot;,@&quot;data&quot;:@{@&quot;content&quot;:@{@&quot;color&quot;:@&quot;#173177&quot;,@&quot;value&quot;:@&quot;点击关注公众号&quot;}}} 
-andCallBack:^(id  _Nonnull obj2) {
-if ([obj2[@&quot;errcode&quot;] integerValue] == 0) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIAlertView showWithTitle:@&quot;成功&quot; message:nil sure:^(UIAlertView *alertView, NSString *text) {
-                        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@&quot;weixin://&quot;]];
-                    }];
-                });
-            }
-}];</p>
-<pre><code>参数简单说明
-&gt;{
-“touser”:”OPENID”,<span class="hljs-regexp">//</span>openid
-“template_id”:”TEMPLATE_ID”,<span class="hljs-regexp">//</span>
-“url”:”URL”,<span class="hljs-regexp">//</span>跳转url
-“scene”:”SCENE”,
-“title”:”TITLE”,<span class="hljs-regexp">//</span>消息名字
-“data”:{
-“content”:{
-“value”:”VALUE”,<span class="hljs-regexp">//</span>消息主体
-“color”:”COLOR”<span class="hljs-regexp">//</span>字体颜色 例：<span class="hljs-comment">#173177</span>
-}
-}
-}
-<span class="hljs-comment">###注意点</span>
-<span class="hljs-number">1</span>. bundleid 和平台注册的要一致
-<span class="hljs-number">2</span>. 把URL type改成wx...... 微信平台的appid
-最终效果：
-![IMG_4073.PNG](https:<span class="hljs-regexp">//u</span>pload-images.jianshu.io<span class="hljs-regexp">/upload_images/</span><span class="hljs-number">12634286</span>-<span class="hljs-number">3182</span>fb9b205eedaf.PNG?imageMogr2<span class="hljs-regexp">/auto-orient/</span>strip%<span class="hljs-number">7</span>CimageView2<span class="hljs-regexp">/2/</span>w/<span class="hljs-number">1240</span>)
-
-
-</code></pre>
-</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323060050":{data:"{\"getArticle\":{\"id\":25,\"title\":\"iOS开发-APP跳转微信公众号方法实现\",\"article_content\":\"我是按照第一种方法做的。（想看效果下一个沪江网校APP在我的里面点击我的学生证即可查看）\\n我直接下载了[微信SDK1.8.3范例代码](https:\u002F\u002Fopen.weixin.qq.com\u002Fcgi-bin\u002Fshowdocument?action=dir_list&t=resource\u002Fres_list&verify=1&id=open1419319164&token=&lang=zh_CN)一番配置后直接在代码中修改。\\n主要分为三个步骤\\n1. **发起微信消息订阅**\\n 在```SendMsgToWeChatViewController```中定位到```subscription```方法\\n```\\n- (void)subscription\\n{\\n    [UIAlertView requestWithTitle:@\\\"请输入scene\\\" message:@\\\"scene\\\" defaultText:@\\\"1000\\\" sure:^(UIAlertView *alertView, NSString *text) {\\n        UInt32 scene = (UInt32)[text integerValue];\\n        [UIAlertView requestWithTitle:@\\\"输入templateId\\\" message:@\\\"templateId\\\" defaultText:@\\\"这里输入templateId\\\" sure:^(UIAlertView *alertView, NSString *text) {\\n            NSString *templateId = text;\\n            \\n            [UIAlertView requestWithTitle:@\\\"请输入reserved\\\" message:nil defaultText:@\\\"\\\" sure:^(UIAlertView *alertView, NSString *text) {\\n                NSString *reserved = text;\\n                \\n                WXSubscribeMsgReq *req = [[WXSubscribeMsgReq alloc] init];\\n                req.scene = scene;\\n                req.templateId = templateId;\\n                req.reserved = reserved;\\n                \\n                [WXApi sendReq:req];\\n            }];\\n        }];\\n    }];\\n}\\n```\\n记得把```defaultText```改成你的APP一次性订阅消息的模板id\\n具体各个属性有啥意思去[文档](https:\u002F\u002Fopen.weixin.qq.com\u002Fcgi-bin\u002Fshowdocument?action=dir_list&t=resource\u002Fres_list&verify=1&id=open1500434436_aWfqW&token=&lang=zh_CN)中找吧\\n调用这个方法跳转微信，用户点击授权跳转回来会在```- (void)managerDidRecvSubscribeMsgResponse:(WXSubscribeMsgResp *)response```获得```templateId``` ```openId``` ```scene```三个参数\\n\\n\\n2. **获取授权Token**\\nGET调用接口获取AccessToken\\n```https:\u002F\u002Fapi.weixin.qq.com\u002Fcgi-bin\u002Ftoken?grant_type=client_credential&appid=APPID&secret=APPSECRET```\\n```\\n[Request getRequestByServiceUrl:@\\\"https:\u002F\u002Fapi.weixin.qq.com\u002Fcgi-bin\u002Ftoken?\\\"\\nandApi:@\\\"grant_type=client_credential&appid=appid&secret=scret\\\" \\nandParams:nil \\nandCallBack:^(id  _Nonnull obj) {\\n token = obj[@\\\"access_token\\\"];\u002F\u002FaccessToken\\n}];\\n```\\n3. **发送订阅消息**\\n基于前两步获得的```accessToken``` ```templateId``` ```openId``` ```scene```\\nPOST调用接口```https:\u002F\u002Fapi.weixin.qq.com\u002Fcgi-bin\u002Fmessage\u002Ftemplate\u002Fsubscribe?access_token=ACCESS_TOKEN``` \\n\\n```\\n[Request postRequestByServiceUrl:@\\\"https:\u002F\u002Fapi.weixin.qq.com\u002Fcgi-bin\u002Fmessage\u002Ftemplate\u002Fsubscribe?\\\"\\n andApi:[NSString stringWithFormat:@\\\"access_token=%@\\\",obj[@\\\"access_token\\\"]] \\nandParams:@{@\\\"touser\\\":response.openId,@\\\"template_id\\\":response.templateId,@\\\"url\\\":@\\\"http:\u002F\u002Fwww.baidu.com\\\",@\\\"scene\\\":[NSNumber numberWithInt:response.scene],@\\\"title\\\":@\\\"消息\\\",@\\\"data\\\":@{@\\\"content\\\":@{@\\\"color\\\":@\\\"#173177\\\",@\\\"value\\\":@\\\"点击关注公众号\\\"}}} \\nandCallBack:^(id  _Nonnull obj2) {\\nif ([obj2[@\\\"errcode\\\"] integerValue] == 0) {\\n                dispatch_async(dispatch_get_main_queue(), ^{\\n                    [UIAlertView showWithTitle:@\\\"成功\\\" message:nil sure:^(UIAlertView *alertView, NSString *text) {\\n                        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@\\\"weixin:\u002F\u002F\\\"]];\\n                    }];\\n                });\\n            }\\n}];\\n```\\n参数简单说明\\n\u003E{\\n“touser”:”OPENID”,\u002F\u002Fopenid\\n“template_id”:”TEMPLATE_ID”,\u002F\u002F\\n“url”:”URL”,\u002F\u002F跳转url\\n“scene”:”SCENE”,\\n“title”:”TITLE”,\u002F\u002F消息名字\\n“data”:{\\n“content”:{\\n“value”:”VALUE”,\u002F\u002F消息主体\\n“color”:”COLOR”\u002F\u002F字体颜色 例：#173177\\n}\\n}\\n}\\n###注意点\\n1. bundleid 和平台注册的要一致\\n2. 把URL type改成wx...... 微信平台的appid\\n最终效果：\\n![IMG_4073.PNG](https:\u002F\u002Fupload-images.jianshu.io\u002Fupload_images\u002F12634286-3182fb9b205eedaf.PNG?imageMogr2\u002Fauto-orient\u002Fstrip%7CimageView2\u002F2\u002Fw\u002F1240)\\n\\n\\n\\n\",\"addTime\":1594877324,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323060050":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>
