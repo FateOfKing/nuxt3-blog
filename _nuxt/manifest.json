@@ -1,6 +1,6 @@
 {
   "node_modules/nuxt/dist/app/entry.mjs": {
-    "file": "entry-75bc457b.mjs",
+    "file": "entry-34246c69.mjs",
     "src": "node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "dynamicImports": [
@@ -18,33 +18,33 @@
     ]
   },
   "pages/archive.vue": {
-    "file": "archive-274aff02.mjs",
+    "file": "archive-393b2b93.mjs",
     "src": "pages/archive.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_article-726819bb.mjs",
+      "_article-5b7facef.mjs",
       "node_modules/nuxt/dist/app/entry.mjs",
-      "_pageContainer-142f2fef.mjs"
+      "_pageContainer-321f4945.mjs"
     ]
   },
-  "_article-726819bb.mjs": {
-    "file": "article-726819bb.mjs",
+  "_article-5b7facef.mjs": {
+    "file": "article-5b7facef.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
-  "_pageContainer-142f2fef.mjs": {
-    "file": "pageContainer-142f2fef.mjs",
+  "_pageContainer-321f4945.mjs": {
+    "file": "pageContainer-321f4945.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
   "pages/detail/[id].vue": {
-    "file": "_id_-1f857193.mjs",
+    "file": "_id_-b9273ba3.mjs",
     "src": "pages/detail/[id].vue",
     "isDynamicEntry": true,
     "imports": [
-      "_article-726819bb.mjs",
+      "_article-5b7facef.mjs",
       "node_modules/nuxt/dist/app/entry.mjs",
       "_index-ed8b9815.mjs"
     ]
@@ -53,14 +53,14 @@
     "file": "index-ed8b9815.mjs"
   },
   "pages/index.vue": {
-    "file": "index-f522a8b8.mjs",
+    "file": "index-568af741.mjs",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_article-726819bb.mjs",
+      "_article-5b7facef.mjs",
       "node_modules/nuxt/dist/app/entry.mjs",
       "_index-ed8b9815.mjs",
-      "_pageContainer-142f2fef.mjs"
+      "_pageContainer-321f4945.mjs"
     ]
   },
   "pages/life.vue": {
@@ -69,7 +69,7 @@
     "isDynamicEntry": true
   },
   "pages/skillSample.vue": {
-    "file": "skillSample-8fd6e8fe.mjs",
+    "file": "skillSample-02a0f0ec.mjs",
     "src": "pages/skillSample.vue",
     "isDynamicEntry": true,
     "imports": [
