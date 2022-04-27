@@ -2,11 +2,176 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061205":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>vue-导入导出Excel文件（使用js-xlsx库）</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-17</div><div data-v-46bd053e><h3 id="导入xlsx库">导入XLSX库</h3>
+<p>官方地址<a href="https://github.com/SheetJS/js-xlsx">Github</a>
+安装
+<code>npm install xlsx --s</code></p>
+<h3 id="简单二次封装js-xlsx库导入导出功能">简单二次封装js-xlsx库导入导出功能</h3>
+<p>封装为<code>excel.js</code></p>
+<pre><code class="language-/*">
+<span class="hljs-keyword">import</span> <span class="hljs-variable constant_">XLSX</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;xlsx&#x27;</span>;
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>: 
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">Object</span>} json 服务端发过来的数据
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">String</span>} name 导出Excel文件名字
+ * <span class="hljs-doctag">@return</span>: 
+ */</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">exportExcel</span>(<span class="hljs-params">json, name</span>) {
+    <span class="hljs-comment">/* convert state to workbook */</span>
+    <span class="hljs-keyword">var</span> data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>();
+    <span class="hljs-keyword">var</span> keyArray = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>();
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> key1 <span class="hljs-keyword">in</span> json) {
+        <span class="hljs-keyword">if</span> (json.<span class="hljs-title function_">hasOwnProperty</span>(key1)) {
+            <span class="hljs-keyword">const</span> element = json[key1];
+            <span class="hljs-keyword">var</span> rowDataArray = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>();
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> key2 <span class="hljs-keyword">in</span> element) {
+                <span class="hljs-keyword">if</span> (element.<span class="hljs-title function_">hasOwnProperty</span>(key2)) {
+                    <span class="hljs-keyword">const</span> element2 = element[key2];
+                    rowDataArray.<span class="hljs-title function_">push</span>(element2);
+                    <span class="hljs-keyword">if</span> (keyArray.<span class="hljs-property">length</span> &lt; <span class="hljs-title function_">getLength</span>(element)) {
+                        keyArray.<span class="hljs-title function_">push</span>(key2);
+                    }
+                }
+            }
+            data.<span class="hljs-title function_">push</span>(rowDataArray);
+        }
+    }
+    data.<span class="hljs-title function_">splice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, keyArray);
+    <span class="hljs-keyword">const</span> ws = <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-property">utils</span>.<span class="hljs-title function_">aoa_to_sheet</span>(data);
+    <span class="hljs-keyword">const</span> wb = <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-property">utils</span>.<span class="hljs-title function_">book_new</span>();
+    <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-property">utils</span>.<span class="hljs-title function_">book_append_sheet</span>(wb, ws, <span class="hljs-string">&quot;SheetJS&quot;</span>);
+    <span class="hljs-comment">/* generate file and send to client */</span>
+    <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-title function_">writeFile</span>(wb, name + <span class="hljs-string">&quot;.xlsx&quot;</span>);
+}
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>: 导入excel文件并返回数据
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">function</span>} 回调函数参数data,dataRef,一个是数据，一个是exce表单的索引 
+ * <span class="hljs-doctag">@return</span>: 
+ */</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">importExcel</span>(<span class="hljs-params">callback</span>) {
+    <span class="hljs-keyword">var</span> inputObj = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;input&#x27;</span>)
+    inputObj.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;file&#x27;</span>);
+    inputObj.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;type&#x27;</span>, <span class="hljs-string">&#x27;file&#x27;</span>);
+    inputObj.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;file&#x27;</span>);
+    inputObj.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;style&quot;</span>, <span class="hljs-string">&#x27;visibility:hidden&#x27;</span>);
+    inputObj.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;accept&quot;</span>, <span class="hljs-string">&quot;.xlsx,.xls,.csv&quot;</span>)
+    inputObj.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;change&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">evt</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> files = evt.<span class="hljs-property">target</span>.<span class="hljs-property">files</span>;
+        <span class="hljs-keyword">if</span> (files &amp;&amp; files[<span class="hljs-number">0</span>]) <span class="hljs-title function_">_file</span>(files[<span class="hljs-number">0</span>], <span class="hljs-function">(<span class="hljs-params">data, dataRef</span>) =&gt;</span> {
+            <span class="hljs-title function_">callback</span>(data, dataRef)
+        });
+    })
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(inputObj);
+    inputObj.<span class="hljs-property">value</span>;
+    inputObj.<span class="hljs-title function_">click</span>();
+
+}
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>: 处理文件
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">Object</span>} file 文件对象
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">function</span>} callback 回调函数 
+ * <span class="hljs-doctag">@return</span>: 
+ */</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">_file</span>(<span class="hljs-params">file, callback</span>) {
+    <span class="hljs-keyword">const</span> <span class="hljs-title function_">make_cols</span> = refstr =&gt; <span class="hljs-title class_">Array</span>(<span class="hljs-variable constant_">XLSX</span>.<span class="hljs-property">utils</span>.<span class="hljs-title function_">decode_range</span>(refstr).<span class="hljs-property">e</span>.<span class="hljs-property">c</span> + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">x, i</span>) =&gt;</span> ({
+        <span class="hljs-attr">name</span>: <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-property">utils</span>.<span class="hljs-title function_">encode_col</span>(i),
+        <span class="hljs-attr">key</span>: i
+    }));
+
+    <span class="hljs-comment">/* Boilerplate to set up FileReader */</span>
+    <span class="hljs-keyword">const</span> reader = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>();
+    reader.<span class="hljs-property">onload</span> = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+        <span class="hljs-comment">/* Parse data */</span>
+        <span class="hljs-keyword">const</span> bstr = e.<span class="hljs-property">target</span>.<span class="hljs-property">result</span>;
+        <span class="hljs-keyword">const</span> wb = <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-title function_">read</span>(bstr, {
+            <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;binary&#x27;</span>
+        });
+        <span class="hljs-comment">/* Get first worksheet */</span>
+        <span class="hljs-keyword">const</span> wsname = wb.<span class="hljs-property">SheetNames</span>[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">const</span> ws = wb.<span class="hljs-property">Sheets</span>[wsname];
+        <span class="hljs-comment">/* Convert array of arrays */</span>
+        <span class="hljs-keyword">const</span> data = <span class="hljs-variable constant_">XLSX</span>.<span class="hljs-property">utils</span>.<span class="hljs-title function_">sheet_to_json</span>(ws, {
+            <span class="hljs-attr">header</span>: <span class="hljs-number">1</span>
+        });
+        <span class="hljs-comment">/* Update state */</span>
+        <span class="hljs-title function_">callback</span>(data, <span class="hljs-title function_">make_cols</span>(ws[<span class="hljs-string">&#x27;!ref&#x27;</span>]))
+
+    };
+    reader.<span class="hljs-title function_">readAsBinaryString</span>(file);
+}
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>: 获取map的长度
+ * <span class="hljs-doctag">@param</span> {<span class="hljs-type">Object</span>} obj map对象 
+ * <span class="hljs-doctag">@return</span>: map的长度
+ */</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">getLength</span>(<span class="hljs-params">obj</span>) {
+
+    <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> obj) {
+
+        <span class="hljs-keyword">if</span> (obj.<span class="hljs-title function_">hasOwnProperty</span>(i)) {
+            count++;
+
+        }
+    }
+
+    <span class="hljs-keyword">return</span> count;
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    exportExcel,
+    importExcel
+}
+</code></pre>
+<p><code>exportExcel </code>导出文件，<code>importExcel </code>导入文件，参数说明看代码中注释</p>
+<h3 id="在其他文件使用封装的js">在其他文件使用封装的js</h3>
+<p>在<code>App.vue</code>中
+首先import文件
+<code>import Excel from &quot;./libs/excel.js&quot;;</code>
+示例导出的json对象，写在<code>data</code>中</p>
+<pre><code class="language-jsonData:">        <span class="hljs-punctuation">{</span>
+<span class="hljs-symbol">          name:</span> <span class="hljs-string">&quot;路人甲&quot;</span>,
+<span class="hljs-symbol">          phone:</span> <span class="hljs-string">&quot;123456789&quot;</span>,
+<span class="hljs-symbol">          email:</span> <span class="hljs-string">&quot;000@123456.com&quot;</span>
+        <span class="hljs-punctuation">}</span>,
+        <span class="hljs-punctuation">{</span>
+<span class="hljs-symbol">          name:</span> <span class="hljs-string">&quot;炮灰乙&quot;</span>,
+<span class="hljs-symbol">          phone:</span> <span class="hljs-string">&quot;123456789&quot;</span>,
+<span class="hljs-symbol">          email:</span> <span class="hljs-string">&quot;000@123456.com&quot;</span>
+        <span class="hljs-punctuation">}</span>,
+        <span class="hljs-punctuation">{</span>
+<span class="hljs-symbol">          name:</span> <span class="hljs-string">&quot;土匪丙&quot;</span>,
+<span class="hljs-symbol">          phone:</span> <span class="hljs-string">&quot;123456789&quot;</span>,
+<span class="hljs-symbol">          email:</span> <span class="hljs-string">&quot;000@123456.com&quot;</span>
+        <span class="hljs-punctuation">}</span>,
+        <span class="hljs-punctuation">{</span>
+<span class="hljs-symbol">          name:</span> <span class="hljs-string">&quot;流氓丁&quot;</span>,
+<span class="hljs-symbol">          phone:</span> <span class="hljs-string">&quot;123456789&quot;</span>,
+<span class="hljs-symbol">          email:</span> <span class="hljs-string">&quot;000@123456.com&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      ]
+</code></pre>
+<p><code>method</code>中写对应的方法</p>
+<pre><code>export<span class="hljs-constructor">Excel()</span> {
+      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Excel</span>.</span></span>export<span class="hljs-constructor">Excel(<span class="hljs-params">this</span>.<span class="hljs-params">jsonData</span>, <span class="hljs-string">&quot;文件&quot;</span>)</span>;
+    },
+import<span class="hljs-constructor">File()</span> {
+      <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Excel</span>.</span></span>import<span class="hljs-constructor">Excel((<span class="hljs-params">data</span>, <span class="hljs-params">dataRef</span>)</span> =&gt; {
+        alert(<span class="hljs-string">&quot;数据已经打印在控制台&quot;</span>);
+        console.log(data);
+        console.log(dataRef);
+      });
+    }
+</code></pre>
+<p>太简单了没写demo，伸手党请不要来问demo。有疑问请留意。</p>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061205":{data:"{\"getArticle\":{\"id\":37,\"title\":\"vue-导入导出Excel文件（使用js-xlsx库）\",\"article_content\":\"### 导入XLSX库\\n官方地址[Github](https:\u002F\u002Fgithub.com\u002FSheetJS\u002Fjs-xlsx)\\n安装\\n`npm install xlsx --s`\\n\\n### 简单二次封装js-xlsx库导入导出功能\\n封装为`excel.js`\\n```\u002F* eslint-disable *\u002F\\n\\nimport XLSX from 'xlsx';\\n\u002F**\\n * @description: \\n * @param {Object} json 服务端发过来的数据\\n * @param {String} name 导出Excel文件名字\\n * @return: \\n *\u002F\\nfunction exportExcel(json, name) {\\n    \u002F* convert state to workbook *\u002F\\n    var data = new Array();\\n    var keyArray = new Array();\\n\\n    for (const key1 in json) {\\n        if (json.hasOwnProperty(key1)) {\\n            const element = json[key1];\\n            var rowDataArray = new Array();\\n            for (const key2 in element) {\\n                if (element.hasOwnProperty(key2)) {\\n                    const element2 = element[key2];\\n                    rowDataArray.push(element2);\\n                    if (keyArray.length \u003C getLength(element)) {\\n                        keyArray.push(key2);\\n                    }\\n                }\\n            }\\n            data.push(rowDataArray);\\n        }\\n    }\\n    data.splice(0, 0, keyArray);\\n    const ws = XLSX.utils.aoa_to_sheet(data);\\n    const wb = XLSX.utils.book_new();\\n    XLSX.utils.book_append_sheet(wb, ws, \\\"SheetJS\\\");\\n    \u002F* generate file and send to client *\u002F\\n    XLSX.writeFile(wb, name + \\\".xlsx\\\");\\n}\\n\\n\u002F**\\n * @description: 导入excel文件并返回数据\\n * @param {function} 回调函数参数data,dataRef,一个是数据，一个是exce表单的索引 \\n * @return: \\n *\u002F\\nfunction importExcel(callback) {\\n    var inputObj = document.createElement('input')\\n    inputObj.setAttribute('id', 'file');\\n    inputObj.setAttribute('type', 'file');\\n    inputObj.setAttribute('name', 'file');\\n    inputObj.setAttribute(\\\"style\\\", 'visibility:hidden');\\n    inputObj.setAttribute(\\\"accept\\\", \\\".xlsx,.xls,.csv\\\")\\n    inputObj.addEventListener('change', (evt) =\u003E {\\n        const files = evt.target.files;\\n        if (files && files[0]) _file(files[0], (data, dataRef) =\u003E {\\n            callback(data, dataRef)\\n        });\\n    })\\n    document.body.appendChild(inputObj);\\n    inputObj.value;\\n    inputObj.click();\\n\\n}\\n\\n\u002F**\\n * @description: 处理文件\\n * @param {Object} file 文件对象\\n * @param {function} callback 回调函数 \\n * @return: \\n *\u002F\\nfunction _file(file, callback) {\\n    const make_cols = refstr =\u003E Array(XLSX.utils.decode_range(refstr).e.c + 1).fill(0).map((x, i) =\u003E ({\\n        name: XLSX.utils.encode_col(i),\\n        key: i\\n    }));\\n\\n    \u002F* Boilerplate to set up FileReader *\u002F\\n    const reader = new FileReader();\\n    reader.onload = (e) =\u003E {\\n        \u002F* Parse data *\u002F\\n        const bstr = e.target.result;\\n        const wb = XLSX.read(bstr, {\\n            type: 'binary'\\n        });\\n        \u002F* Get first worksheet *\u002F\\n        const wsname = wb.SheetNames[0];\\n        const ws = wb.Sheets[wsname];\\n        \u002F* Convert array of arrays *\u002F\\n        const data = XLSX.utils.sheet_to_json(ws, {\\n            header: 1\\n        });\\n        \u002F* Update state *\u002F\\n        callback(data, make_cols(ws['!ref']))\\n\\n    };\\n    reader.readAsBinaryString(file);\\n}\\n\\n\u002F**\\n * @description: 获取map的长度\\n * @param {Object} obj map对象 \\n * @return: map的长度\\n *\u002F\\nfunction getLength(obj) {\\n\\n    var count = 0;\\n    for (var i in obj) {\\n\\n        if (obj.hasOwnProperty(i)) {\\n            count++;\\n\\n        }\\n    }\\n\\n    return count;\\n}\\nexport default {\\n    exportExcel,\\n    importExcel\\n}\\n```\\n`exportExcel `导出文件，`importExcel `导入文件，参数说明看代码中注释\\n### 在其他文件使用封装的js\\n在`App.vue`中\\n首先import文件\\n`import Excel from \\\".\u002Flibs\u002Fexcel.js\\\";`\\n示例导出的json对象，写在`data`中\\n```jsonData: [\\n        {\\n          name: \\\"路人甲\\\",\\n          phone: \\\"123456789\\\",\\n          email: \\\"000@123456.com\\\"\\n        },\\n        {\\n          name: \\\"炮灰乙\\\",\\n          phone: \\\"123456789\\\",\\n          email: \\\"000@123456.com\\\"\\n        },\\n        {\\n          name: \\\"土匪丙\\\",\\n          phone: \\\"123456789\\\",\\n          email: \\\"000@123456.com\\\"\\n        },\\n        {\\n          name: \\\"流氓丁\\\",\\n          phone: \\\"123456789\\\",\\n          email: \\\"000@123456.com\\\"\\n        }\\n      ]\\n```\\n`method`中写对应的方法\\n```\\nexportExcel() {\\n      Excel.exportExcel(this.jsonData, \\\"文件\\\");\\n    },\\nimportFile() {\\n      Excel.importExcel((data, dataRef) =\u003E {\\n        alert(\\\"数据已经打印在控制台\\\");\\n        console.log(data);\\n        console.log(dataRef);\\n      });\\n    }\\n```\\n\\n太简单了没写demo，伸手党请不要来问demo。有疑问请留意。\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>

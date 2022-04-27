@@ -2,11 +2,107 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323062162":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>iView框架编写递归组件Dropdown</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-17</div><div data-v-46bd053e><p>首先递归组件核心就是在自己的组件内，渲染自己。
+普通的组件递归比较简单，百度一大堆。
+但是iView中的Dropdown组件递归有几个需要注意的点。</p>
+<ol>
+<li><code>div</code>不能包裹<code>Dropdown</code></li>
+<li><code>div</code>不能包裹<code>DropdownMenu</code>
+否则Dropdown无法正常渲染。</li>
+</ol>
+<p>直接上代码：遍历组件<code>recursionDropdownItem</code></p>
+<pre><code><span class="language-xml"><span class="hljs-comment">&lt;!--
+ * @Description: Description
+ * @Author: Test
+ * @Date: 2019-08-03 09:56:06
+ * @LastEditors: Test
+ * @LastEditTime: 2019-08-19 17:00:28
+ --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:100px&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;(item, index) in data&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;index&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">DropdownItem</span>
+        <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;item[propsMap.children] &amp;&amp; item[propsMap.children].length == 0&quot;</span>
+        @<span class="hljs-attr">click.native</span>=<span class="hljs-string">&quot;itemChilk(item)&quot;</span>
+      &gt;</span></span><span class="hljs-template-variable">{{<span class="hljs-name">item</span>[propsMap.title]}}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">DropdownItem</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Dropdown</span>
+        <span class="hljs-attr">placement</span>=<span class="hljs-string">&quot;right-start&quot;</span>
+        <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;item[propsMap.children] &amp;&amp; item[propsMap.children].length != 0&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DropdownItem</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">&quot;itemChilk(item)&quot;</span>&gt;</span>
+          </span><span class="hljs-template-variable">{{<span class="hljs-name">item</span>[propsMap.title]}}</span><span class="language-xml">
+          <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;ios-arrow-forward&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Icon</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">DropdownItem</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DropdownMenu</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">recursionDropdownItem</span>
+            <span class="hljs-attr">:data</span>=<span class="hljs-string">&quot;item[propsMap.children]&quot;</span>
+            <span class="hljs-attr">:propsMap</span>=<span class="hljs-string">&quot;propsMap&quot;</span>
+            @<span class="hljs-attr">itemChilk</span>=<span class="hljs-string">&quot;itemChilk&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">recursionDropdownItem</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">DropdownMenu</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Dropdown</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">props</span>: {
+    <span class="hljs-attr">data</span>: {
+      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Array</span>
+    },
+    <span class="hljs-attr">propsMap</span>: {
+      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Object</span>,
+      <span class="hljs-attr">default</span>: {
+        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;title&quot;</span>,
+        <span class="hljs-attr">children</span>: <span class="hljs-string">&quot;children&quot;</span>
+      }
+    }
+  },
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;recursionDropdownItem&quot;</span>,
+
+  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> {};
+  },
+
+  <span class="hljs-attr">components</span>: {},
+
+  <span class="hljs-attr">computed</span>: {},
+
+  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) {},
+
+  <span class="hljs-attr">methods</span>: {
+    <span class="hljs-title function_">itemChilk</span>(<span class="hljs-params">item</span>) {
+      <span class="hljs-variable language_">this</span>.$emit(<span class="hljs-string">&quot;itemChilk&quot;</span>, item);
+    }
+  }
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&#x27;scss&#x27;</span> <span class="hljs-attr">scoped</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span>
+</code></pre>
+<p>在其他vue文件中调用，首先import 和 注册（这是基础不懂的百度）。
+然后在合适的位置 <strong>调用代码</strong></p>
+<pre><code><span class="language-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">Dropdown</span>
+          <span class="hljs-attr">trigger</span>=<span class="hljs-string">&quot;click&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;short-select&quot;</span>
+          <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;margin-left: 18px&quot;</span>
+          <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;fatherList.length != 0&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;cursor: pointer;&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;showDropDown&quot;</span>&gt;</span>
+            </span><span class="hljs-template-variable">{{<span class="hljs-name">fatherText</span>}}</span><span class="language-xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;ios-arrow-down&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Icon</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">DropdownMenu</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">RecursionDropdownItem</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">&quot;fatherList&quot;</span> <span class="hljs-attr">:propsMap</span>=<span class="hljs-string">&quot;propsMap&quot;</span> @<span class="hljs-attr">itemChilk</span>=<span class="hljs-string">&quot;itemChilk&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">RecursionDropdownItem</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">DropdownMenu</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Dropdown</span>&gt;</span></span>
+</code></pre>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323062162":{data:"{\"getArticle\":{\"id\":43,\"title\":\"iView框架编写递归组件Dropdown\",\"article_content\":\"首先递归组件核心就是在自己的组件内，渲染自己。\\n普通的组件递归比较简单，百度一大堆。\\n但是iView中的Dropdown组件递归有几个需要注意的点。\\n1. `div`不能包裹`Dropdown`\\n2. `div`不能包裹`DropdownMenu`\\n否则Dropdown无法正常渲染。\\n\\n直接上代码：遍历组件`recursionDropdownItem`\\n```\\n\u003C!--\\n * @Description: Description\\n * @Author: Test\\n * @Date: 2019-08-03 09:56:06\\n * @LastEditors: Test\\n * @LastEditTime: 2019-08-19 17:00:28\\n --\u003E\\n\u003Ctemplate\u003E\\n  \u003Cdiv style=\\\"width:100px\\\"\u003E\\n    \u003Cdiv v-for=\\\"(item, index) in data\\\" :key=\\\"index\\\"\u003E\\n      \u003CDropdownItem\\n        v-if=\\\"item[propsMap.children] && item[propsMap.children].length == 0\\\"\\n        @click.native=\\\"itemChilk(item)\\\"\\n      \u003E{{item[propsMap.title]}}\u003C\u002FDropdownItem\u003E\\n      \u003CDropdown\\n        placement=\\\"right-start\\\"\\n        v-else-if=\\\"item[propsMap.children] && item[propsMap.children].length != 0\\\"\\n      \u003E\\n        \u003CDropdownItem @click.native=\\\"itemChilk(item)\\\"\u003E\\n          {{item[propsMap.title]}}\\n          \u003CIcon type=\\\"ios-arrow-forward\\\"\u003E\u003C\u002FIcon\u003E\\n        \u003C\u002FDropdownItem\u003E\\n        \u003CDropdownMenu slot=\\\"list\\\"\u003E\\n          \u003CrecursionDropdownItem\\n            :data=\\\"item[propsMap.children]\\\"\\n            :propsMap=\\\"propsMap\\\"\\n            @itemChilk=\\\"itemChilk\\\"\\n          \u003E\u003C\u002FrecursionDropdownItem\u003E\\n        \u003C\u002FDropdownMenu\u003E\\n      \u003C\u002FDropdown\u003E\\n    \u003C\u002Fdiv\u003E\\n  \u003C\u002Fdiv\u003E\\n\u003C\u002Ftemplate\u003E\\n\\n\u003Cscript\u003E\\nexport default {\\n  props: {\\n    data: {\\n      type: Array\\n    },\\n    propsMap: {\\n      type: Object,\\n      default: {\\n        title: \\\"title\\\",\\n        children: \\\"children\\\"\\n      }\\n    }\\n  },\\n  name: \\\"recursionDropdownItem\\\",\\n\\n  data() {\\n    return {};\\n  },\\n\\n  components: {},\\n\\n  computed: {},\\n\\n  mounted() {},\\n\\n  methods: {\\n    itemChilk(item) {\\n      this.$emit(\\\"itemChilk\\\", item);\\n    }\\n  }\\n};\\n\u003C\u002Fscript\u003E\\n\u003Cstyle lang='scss' scoped\u003E\\n\u003C\u002Fstyle\u003E\\n```\\n\\n在其他vue文件中调用，首先import 和 注册（这是基础不懂的百度）。\\n然后在合适的位置 **调用代码**\\n```\\n \u003CDropdown\\n          trigger=\\\"click\\\"\\n          class=\\\"short-select\\\"\\n          style=\\\"margin-left: 18px\\\"\\n          v-if=\\\"fatherList.length != 0\\\"\\n        \u003E\\n          \u003Cspan style=\\\"cursor: pointer;\\\" v-if=\\\"showDropDown\\\"\u003E\\n            {{fatherText}}\\n            \u003CIcon type=\\\"ios-arrow-down\\\"\u003E\u003C\u002FIcon\u003E\\n          \u003C\u002Fspan\u003E\\n          \u003CDropdownMenu slot=\\\"list\\\"\u003E\\n            \u003CRecursionDropdownItem :data=\\\"fatherList\\\" :propsMap=\\\"propsMap\\\" @itemChilk=\\\"itemChilk\\\"\u003E\u003C\u002FRecursionDropdownItem\u003E\\n          \u003C\u002FDropdownMenu\u003E\\n        \u003C\u002FDropdown\u003E\\n```\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>

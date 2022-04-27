@@ -2,11 +2,158 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323059984":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>iOS自动打包脚本，发布fir，发送邮件，自动注释变量</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-16</div><div data-v-46bd053e><h3 id="打包时修改文件中的变量把测试的注释，线上的打开注释">打包时修改文件中的变量把测试的注释，线上的打开注释</h3>
+<pre><code><span class="hljs-comment">#weex ios ios工程目录名称</span>
+weexproject=xxxapp_weex
+iosproject=xxxapp_ios
+SCHEMENAME=xxxapp_ios
+
+<span class="hljs-comment">#iOS工程测试的变量</span>
+tests=(
+    <span class="hljs-string">&quot;NSString \* const imageBucket = @\&quot;</span><span class="hljs-built_in">test-xxx</span><span class="hljs-literal">-images</span>\<span class="hljs-string">&quot;;&quot;</span>
+    <span class="hljs-string">&quot;NSString \* const videoBucket = @\&quot;</span><span class="hljs-built_in">test-xxx</span><span class="hljs-literal">-videos</span>\<span class="hljs-string">&quot;;&quot;</span>
+    <span class="hljs-string">&quot;NSString \* const bookBucket = @\&quot;</span><span class="hljs-built_in">test-xxx</span><span class="hljs-literal">-books</span>\<span class="hljs-string">&quot;;&quot;</span>
+    <span class="hljs-string">&quot;NSString \* const kBaseUrl = @\&quot;</span>https:\/\/cs.management.xxx.com\<span class="hljs-string">&quot;;&quot;</span>
+)
+<span class="hljs-comment">#iOS工程正式的变量</span>
+onlines=(
+    <span class="hljs-string">&quot;NSString \* const imageBucket = @\&quot;</span>xxx<span class="hljs-literal">-images</span>\<span class="hljs-string">&quot;;&quot;</span>
+    <span class="hljs-string">&quot;NSString \* const videoBucket = @\&quot;</span>xxx<span class="hljs-literal">-videos</span>\<span class="hljs-string">&quot;;&quot;</span>
+    <span class="hljs-string">&quot;NSString \* const bookBucket = @\&quot;</span>xxx<span class="hljs-literal">-books</span>\<span class="hljs-string">&quot;;&quot;</span>
+    <span class="hljs-string">&quot;NSString \* const kBaseUrl = @\&quot;</span>https:\/\/management.xxx.com\<span class="hljs-string">&quot;;&quot;</span>
+)
+
+<span class="hljs-comment">#weex工程测试的变量</span>
+weextests=(
+    <span class="hljs-string">&quot;baseurl:&#x27;https:\/\/cs.management.xxx.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;imageUrl:&#x27;https:\/\/test-xxx-images.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;bookPathUrl:&#x27;https:\/\/test-xxx-books.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;videoUrl:&#x27;https:\/\/test-xxx-videos.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;audioUrl:&#x27;https:\/\/test-xxx-audios.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;othersUrl:&#x27;https:\/\/test-xxx-others.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;ueditUrl:&#x27;https:\/\/test-xxx-ueditor.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;zipBookPathUrl:&#x27;http:\/\/test-xxx-books.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+)
+<span class="hljs-comment">#weex工程正式的变量</span>
+weexonlines=(
+    <span class="hljs-string">&quot;baseurl:&#x27;https:\/\/management.xxx.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;imageUrl:&#x27;https:\/\/xxx-images.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;bookPathUrl:&#x27;https:\/\/xxx-books.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;videoUrl:&#x27;https:\/\/xxx-videos.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;audioUrl:&#x27;https:\/\/xxx-audios.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;othersUrl:&#x27;https:\/\/xxx-others.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;ueditUrl:&#x27;https:\/\/xxx-ueditor.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+    <span class="hljs-string">&quot;zipBookPathUrl:&#x27;http:\/\/xxx-books.oss-cn-shanghai.aliyuncs.com\/&#x27;,&quot;</span>
+)
+
+<span class="hljs-comment">#开始修改DBConst为线上</span>
+
+<span class="hljs-comment">#注释代码</span>
+<span class="hljs-comment">#function 将传入数组的里的代码注释掉</span>
+annotationArray() {
+    elements=<span class="hljs-variable">$</span>((<span class="hljs-variable">$</span><span class="hljs-comment"># - 1))</span>
+    allelements=<span class="hljs-variable">$</span>((<span class="hljs-variable">$</span><span class="hljs-comment">#))</span>
+    file=<span class="hljs-variable">$</span>{!allelements}
+    <span class="hljs-keyword">for</span> ((i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-variable">$elements</span>; i++)); <span class="hljs-keyword">do</span>
+        before=<span class="hljs-variable">$</span>{!i}
+        after=<span class="hljs-string">&quot;\/\/&quot;</span><span class="hljs-string">&quot;<span class="hljs-variable">$</span>{before}&quot;</span>
+        <span class="hljs-comment">#如果没有被注释则替换</span>
+        <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$</span>(<span class="hljs-type">grep</span> -<span class="hljs-type">c</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{after}&quot;</span> <span class="hljs-variable">$file</span>) -<span class="hljs-type">eq</span> <span class="hljs-number">0</span> ]; then
+            sed <span class="hljs-literal">-i</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-string">&#x27;s/&#x27;</span><span class="hljs-string">&quot;<span class="hljs-variable">$</span>{before}&quot;</span><span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-string">&quot;<span class="hljs-variable">$</span>{after}&quot;</span><span class="hljs-string">&#x27;/g&#x27;</span> <span class="hljs-variable">$file</span>
+        fi
+    done
+}
+<span class="hljs-comment">#去掉注释</span>
+<span class="hljs-comment">#function 将传入数组的里的代码去掉注释</span>
+unannotationArray() {
+    elements=<span class="hljs-variable">$</span>((<span class="hljs-variable">$</span><span class="hljs-comment"># - 1))</span>
+    allelements=<span class="hljs-variable">$</span>((<span class="hljs-variable">$</span><span class="hljs-comment">#))</span>
+    file=<span class="hljs-variable">$</span>{!allelements}
+    <span class="hljs-keyword">for</span> ((i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-variable">$elements</span>; i++)); <span class="hljs-keyword">do</span>
+        before=<span class="hljs-variable">$</span>{!i}
+        after=<span class="hljs-string">&quot;\/\/&quot;</span><span class="hljs-string">&quot;<span class="hljs-variable">$</span>{before}&quot;</span>
+        <span class="hljs-comment">#如果没有被注释则替换</span>
+        <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$</span>(<span class="hljs-type">grep</span> -<span class="hljs-type">c</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{after}&quot;</span> <span class="hljs-variable">$file</span>) -<span class="hljs-type">eq</span> <span class="hljs-number">1</span> ]; then
+            sed <span class="hljs-literal">-i</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-string">&#x27;s/&#x27;</span><span class="hljs-string">&quot;<span class="hljs-variable">$</span>{after}&quot;</span><span class="hljs-string">&#x27;/&#x27;</span><span class="hljs-string">&quot;<span class="hljs-variable">$</span>{before}&quot;</span><span class="hljs-string">&#x27;/g&#x27;</span> <span class="hljs-variable">$file</span>
+        fi
+    done
+}
+
+ <span class="hljs-built_in">cd</span> ~/Documents/work/<span class="hljs-variable">$</span>{iosproject}/xxxapp_ios/Common
+ annotationArray <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{tests[@]}&quot;</span> <span class="hljs-string">&quot;DBConst.m&quot;</span>
+ unannotationArray <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{onlines[@]}&quot;</span> <span class="hljs-string">&quot;DBConst.m&quot;</span>
+<span class="hljs-built_in">cd</span> ~/Documents/work/<span class="hljs-variable">$</span>{weexproject}/src
+annotationArray <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{weextests[@]}&quot;</span> <span class="hljs-string">&quot;api.js&quot;</span>
+unannotationArray <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{weexonlines[@]}&quot;</span> <span class="hljs-string">&quot;api.js&quot;</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;替换线上成功----已将iOS中DBConst.m和Weex工程中api.js变量替换为线上----&#x27;</span>
+</code></pre>
+<p>###拉取git最新代码 
+######前提把weex项目运行起来，没有weex的可以去掉sleep，为了等待重新编译</p>
+<pre><code><span class="hljs-built_in">cd</span> ~/Documents/work/<span class="hljs-variable">${weexproject}</span>
+git pull
+<span class="hljs-built_in">cd</span> ~/Documents/work/<span class="hljs-variable">${iosproject}</span>
+git pull
+<span class="hljs-built_in">sleep</span> 60
+</code></pre>
+<p>修改plist文件PlistBuddy用法可以参考我之前的文章<a href="p/8d6e73db5bbb">Mac终端Shell脚本使用笔记</a></p>
+<pre><code><span class="hljs-comment">#每次发版本自动将build号加1</span>
+bundleVersion=$(<span class="hljs-regexp">/usr/</span>libexec<span class="hljs-regexp">/PlistBuddy -c &quot;Print CFBundleVersion&quot; ~/</span>Documents<span class="hljs-regexp">/work/</span><span class="hljs-variable">${iosproject}</span><span class="hljs-regexp">/xxxapp_ios/</span>Info.plist)
+bundleVersion=$((bundleVersion + <span class="hljs-number">1</span>))
+<span class="hljs-regexp">/usr/</span>libexec<span class="hljs-regexp">/PlistBuddy -c &quot;Set CFBundleVersion ${bundleVersion}&quot; ~/</span>Documents<span class="hljs-regexp">/work/</span><span class="hljs-variable">${iosproject}</span><span class="hljs-regexp">/xxxapp_ios/</span>Info.plist
+<span class="hljs-comment">#修改APP名字</span>
+<span class="hljs-regexp">/usr/</span>libexec<span class="hljs-regexp">/PlistBuddy -c &quot;Set CFBundleDisplayName xxx&quot; ~/</span>Documents<span class="hljs-regexp">/work/</span><span class="hljs-variable">${iosproject}</span><span class="hljs-regexp">/xxxapp_ios/</span>Info.plist
+</code></pre>
+<p>###打包ipa</p>
+<pre><code>WORKSPACE=~<span class="hljs-regexp">/Documents/</span>work<span class="hljs-regexp">/${iosproject}/</span>xxxapp_ios.xcworkspace
+CHANHELOG=~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span>.log
+
+xcodebuild -workspace <span class="hljs-variable">${WORKSPACE}</span> -scheme <span class="hljs-variable">${SCHEMENAME}</span> clean
+<span class="hljs-comment">#编译工程</span>
+xcodebuild archive -workspace <span class="hljs-variable">${WORKSPACE}</span> -scheme <span class="hljs-variable">${SCHEMENAME}</span> -configuration Release -archivePath ~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span>/<span class="hljs-variable">${SCHEMENAME}</span>
+
+<span class="hljs-comment">#导出ipa</span>
+xcodebuild -exportArchive -archivePath ~<span class="hljs-regexp">/Desktop/</span><span class="hljs-variable">${SCHEMENAME}</span><span class="hljs-regexp">/${SCHEMENAME}.xcarchive -exportPath ~/</span>Desktop<span class="hljs-regexp">/${SCHEMENAME}/</span>IPA<span class="hljs-regexp">/ -exportOptionsPlist ~/</span>Documents<span class="hljs-regexp">/work/</span><span class="hljs-variable">${iosproject}</span>/exprotOptionsPlist.plist -allowProvisioningUpdates -allowProvisioningDeviceRegistration
+</code></pre>
+<p>###发布到fir</p>
+<pre><code><span class="hljs-keyword">if</span> [  -f <span class="hljs-string">&quot;<span class="hljs-variable">$CHANHELOG</span>&quot;</span> ];<span class="hljs-keyword">then</span>
+<span class="hljs-built_in">rm</span> ~/Desktop/<span class="hljs-variable">${SCHEMENAME}</span>.<span class="hljs-built_in">log</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-built_in">cd</span> ~/Documents/work/<span class="hljs-variable">${weexproject}</span>
+git <span class="hljs-built_in">log</span> -1 --pretty --oneline &gt;&gt; <span class="hljs-string">&quot;<span class="hljs-variable">$CHANHELOG</span>&quot;</span>
+fir login -T xxx
+fir publish ~/Desktop/<span class="hljs-variable">${SCHEMENAME}</span>/IPA/<span class="hljs-variable">${SCHEMENAME}</span>.ipa --changelog=<span class="hljs-string">&quot;<span class="hljs-variable">$CHANHELOG</span>&quot;</span>
+</code></pre>
+<p>###发送邮件</p>
+<pre><code><span class="hljs-attribute">email_reciver1</span>=<span class="hljs-string">&quot;xxxx&quot;</span>
+<span class="hljs-attribute">email_reciver2</span>=<span class="hljs-string">&quot;xxxx&quot;</span>
+<span class="hljs-comment">#发送者邮箱</span>
+<span class="hljs-attribute">email_sender</span>=xxx
+<span class="hljs-comment">#邮箱用户名</span>
+<span class="hljs-attribute">email_username</span>=xxx
+<span class="hljs-comment">#邮箱密码</span>
+<span class="hljs-comment">#使用qq邮箱进行发送需要注意：首先需要开启：POP3/SMTP服务，其次发送邮件的密码需要使用在开启POP3/SMTP服务时候腾讯提供的第三方客户端登陆码。</span>
+<span class="hljs-attribute">email_password</span>=xxx
+<span class="hljs-comment">#附件图片</span>
+<span class="hljs-attribute">file_path</span>=<span class="hljs-string">&quot;/Users/xxx/Documents/work/二维码.png&quot;</span>
+
+<span class="hljs-comment">#smtp服务器地址</span>
+<span class="hljs-attribute">email_smtphost</span>=xxx
+<span class="hljs-attribute">bundleShortVersion</span>=$(/usr/libexec/PlistBuddy -c <span class="hljs-string">&quot;Print CFBundleShortVersionString&quot;</span> /Users/huangzhenyu/Documents/work/<span class="hljs-variable">${iosproject}</span>/xxxapp_ios/Info.plist)
+
+
+
+<span class="hljs-attribute">email_title</span>=<span class="hljs-string">&quot;xxxTest iOS客户端 V &quot;</span><span class="hljs-variable">$bundleShortVersion</span><span class="hljs-string">&quot;Build &quot;</span><span class="hljs-variable">$bundleVersion</span>
+<span class="hljs-attribute">email_result</span>=$(cat <span class="hljs-variable">${CHANHELOG}</span>)
+<span class="hljs-attribute">email_content</span>=<span class="hljs-string">&quot;下载地址：https://fir.im/test&quot;</span><span class="hljs-string">&#x27;\n&#x27;</span><span class="hljs-string">&quot;更新日志：&quot;</span><span class="hljs-string">&#x27;\n&#x27;</span><span class="hljs-string">&quot;<span class="hljs-variable">$email_result</span>&quot;</span>
+sendEmail -f <span class="hljs-variable">${email_sender}</span> -t <span class="hljs-variable">${email_reciver1}</span> <span class="hljs-variable">${email_reciver2}</span> -s <span class="hljs-variable">${email_smtphost}</span> -u <span class="hljs-variable">${email_title}</span> -xu <span class="hljs-variable">${email_username}</span> -xp <span class="hljs-variable">${email_password}</span> -m <span class="hljs-string">&quot;<span class="hljs-variable">$email_content</span>&quot;</span> -a <span class="hljs-variable">${file_path}</span>  -o <span class="hljs-attribute">message-charset</span>=utf-8
+</code></pre>
+<p>脚本和plist地址<a href="https://github.com/FateOfKing/macShell">Github</a></p>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323059984":{data:"{\"getArticle\":{\"id\":23,\"title\":\"iOS自动打包脚本，发布fir，发送邮件，自动注释变量\",\"article_content\":\"### 打包时修改文件中的变量把测试的注释，线上的打开注释\\n```\\n#weex ios ios工程目录名称\\nweexproject=xxxapp_weex\\niosproject=xxxapp_ios\\nSCHEMENAME=xxxapp_ios\\n\\n#iOS工程测试的变量\\ntests=(\\n\\t\\\"NSString \\\\* const imageBucket = @\\\\\\\"test-xxx-images\\\\\\\";\\\"\\n\\t\\\"NSString \\\\* const videoBucket = @\\\\\\\"test-xxx-videos\\\\\\\";\\\"\\n\\t\\\"NSString \\\\* const bookBucket = @\\\\\\\"test-xxx-books\\\\\\\";\\\"\\n\\t\\\"NSString \\\\* const kBaseUrl = @\\\\\\\"https:\\\\\u002F\\\\\u002Fcs.management.xxx.com\\\\\\\";\\\"\\n)\\n#iOS工程正式的变量\\nonlines=(\\n\\t\\\"NSString \\\\* const imageBucket = @\\\\\\\"xxx-images\\\\\\\";\\\"\\n\\t\\\"NSString \\\\* const videoBucket = @\\\\\\\"xxx-videos\\\\\\\";\\\"\\n\\t\\\"NSString \\\\* const bookBucket = @\\\\\\\"xxx-books\\\\\\\";\\\"\\n\\t\\\"NSString \\\\* const kBaseUrl = @\\\\\\\"https:\\\\\u002F\\\\\u002Fmanagement.xxx.com\\\\\\\";\\\"\\n)\\n\\n#weex工程测试的变量\\nweextests=(\\n\\t\\\"baseurl:'https:\\\\\u002F\\\\\u002Fcs.management.xxx.com\\\\\u002F',\\\"\\n\\t\\\"imageUrl:'https:\\\\\u002F\\\\\u002Ftest-xxx-images.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"bookPathUrl:'https:\\\\\u002F\\\\\u002Ftest-xxx-books.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"videoUrl:'https:\\\\\u002F\\\\\u002Ftest-xxx-videos.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"audioUrl:'https:\\\\\u002F\\\\\u002Ftest-xxx-audios.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"othersUrl:'https:\\\\\u002F\\\\\u002Ftest-xxx-others.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"ueditUrl:'https:\\\\\u002F\\\\\u002Ftest-xxx-ueditor.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"zipBookPathUrl:'http:\\\\\u002F\\\\\u002Ftest-xxx-books.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n)\\n#weex工程正式的变量\\nweexonlines=(\\n\\t\\\"baseurl:'https:\\\\\u002F\\\\\u002Fmanagement.xxx.com\\\\\u002F',\\\"\\n\\t\\\"imageUrl:'https:\\\\\u002F\\\\\u002Fxxx-images.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"bookPathUrl:'https:\\\\\u002F\\\\\u002Fxxx-books.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"videoUrl:'https:\\\\\u002F\\\\\u002Fxxx-videos.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"audioUrl:'https:\\\\\u002F\\\\\u002Fxxx-audios.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"othersUrl:'https:\\\\\u002F\\\\\u002Fxxx-others.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"ueditUrl:'https:\\\\\u002F\\\\\u002Fxxx-ueditor.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n\\t\\\"zipBookPathUrl:'http:\\\\\u002F\\\\\u002Fxxx-books.oss-cn-shanghai.aliyuncs.com\\\\\u002F',\\\"\\n)\\n\\n#开始修改DBConst为线上\\n\\n#注释代码\\n#function 将传入数组的里的代码注释掉\\nannotationArray() {\\n\\telements=$(($# - 1))\\n\\tallelements=$(($#))\\n\\tfile=${!allelements}\\n\\tfor ((i = 1; i \u003C= $elements; i++)); do\\n\\t\\tbefore=${!i}\\n\\t\\tafter=\\\"\\\\\u002F\\\\\u002F\\\"\\\"${before}\\\"\\n\\t\\t#如果没有被注释则替换\\n\\t\\tif [ $(grep -c \\\"${after}\\\" $file) -eq 0 ]; then\\n\\t\\t\\tsed -i '' 's\u002F'\\\"${before}\\\"'\u002F'\\\"${after}\\\"'\u002Fg' $file\\n\\t\\tfi\\n\\tdone\\n}\\n#去掉注释\\n#function 将传入数组的里的代码去掉注释\\nunannotationArray() {\\n\\telements=$(($# - 1))\\n\\tallelements=$(($#))\\n\\tfile=${!allelements}\\n\\tfor ((i = 1; i \u003C= $elements; i++)); do\\n\\t\\tbefore=${!i}\\n\\t\\tafter=\\\"\\\\\u002F\\\\\u002F\\\"\\\"${before}\\\"\\n\\t\\t#如果没有被注释则替换\\n\\t\\tif [ $(grep -c \\\"${after}\\\" $file) -eq 1 ]; then\\n\\t\\t\\tsed -i '' 's\u002F'\\\"${after}\\\"'\u002F'\\\"${before}\\\"'\u002Fg' $file\\n\\t\\tfi\\n\\tdone\\n}\\n\\n cd ~\u002FDocuments\u002Fwork\u002F${iosproject}\u002Fxxxapp_ios\u002FCommon\\n annotationArray \\\"${tests[@]}\\\" \\\"DBConst.m\\\"\\n unannotationArray \\\"${onlines[@]}\\\" \\\"DBConst.m\\\"\\ncd ~\u002FDocuments\u002Fwork\u002F${weexproject}\u002Fsrc\\nannotationArray \\\"${weextests[@]}\\\" \\\"api.js\\\"\\nunannotationArray \\\"${weexonlines[@]}\\\" \\\"api.js\\\"\\n\\necho '替换线上成功----已将iOS中DBConst.m和Weex工程中api.js变量替换为线上----'\\n```\\n###拉取git最新代码 \\n######前提把weex项目运行起来，没有weex的可以去掉sleep，为了等待重新编译\\n```\\ncd ~\u002FDocuments\u002Fwork\u002F${weexproject}\\ngit pull\\ncd ~\u002FDocuments\u002Fwork\u002F${iosproject}\\ngit pull\\nsleep 60\\n```\\n修改plist文件PlistBuddy用法可以参考我之前的文章[Mac终端Shell脚本使用笔记](p\u002F8d6e73db5bbb)\\n```\\n#每次发版本自动将build号加1\\nbundleVersion=$(\u002Fusr\u002Flibexec\u002FPlistBuddy -c \\\"Print CFBundleVersion\\\" ~\u002FDocuments\u002Fwork\u002F${iosproject}\u002Fxxxapp_ios\u002FInfo.plist)\\nbundleVersion=$((bundleVersion + 1))\\n\u002Fusr\u002Flibexec\u002FPlistBuddy -c \\\"Set CFBundleVersion ${bundleVersion}\\\" ~\u002FDocuments\u002Fwork\u002F${iosproject}\u002Fxxxapp_ios\u002FInfo.plist\\n#修改APP名字\\n\u002Fusr\u002Flibexec\u002FPlistBuddy -c \\\"Set CFBundleDisplayName xxx\\\" ~\u002FDocuments\u002Fwork\u002F${iosproject}\u002Fxxxapp_ios\u002FInfo.plist\\n```\\n###打包ipa\\n```\\nWORKSPACE=~\u002FDocuments\u002Fwork\u002F${iosproject}\u002Fxxxapp_ios.xcworkspace\\nCHANHELOG=~\u002FDesktop\u002F${SCHEMENAME}.log\\n\\nxcodebuild -workspace ${WORKSPACE} -scheme ${SCHEMENAME} clean\\n#编译工程\\nxcodebuild archive -workspace ${WORKSPACE} -scheme ${SCHEMENAME} -configuration Release -archivePath ~\u002FDesktop\u002F${SCHEMENAME}\u002F${SCHEMENAME}\\n\\n#导出ipa\\nxcodebuild -exportArchive -archivePath ~\u002FDesktop\u002F${SCHEMENAME}\u002F${SCHEMENAME}.xcarchive -exportPath ~\u002FDesktop\u002F${SCHEMENAME}\u002FIPA\u002F -exportOptionsPlist ~\u002FDocuments\u002Fwork\u002F${iosproject}\u002FexprotOptionsPlist.plist -allowProvisioningUpdates -allowProvisioningDeviceRegistration\\n```\\n\\n###发布到fir\\n```\\nif [  -f \\\"$CHANHELOG\\\" ];then\\nrm ~\u002FDesktop\u002F${SCHEMENAME}.log\\nfi\\ncd ~\u002FDocuments\u002Fwork\u002F${weexproject}\\ngit log -1 --pretty --oneline \u003E\u003E \\\"$CHANHELOG\\\"\\nfir login -T xxx\\nfir publish ~\u002FDesktop\u002F${SCHEMENAME}\u002FIPA\u002F${SCHEMENAME}.ipa --changelog=\\\"$CHANHELOG\\\"\\n```\\n###发送邮件\\n```\\nemail_reciver1=\\\"xxxx\\\"\\nemail_reciver2=\\\"xxxx\\\"\\n#发送者邮箱\\nemail_sender=xxx\\n#邮箱用户名\\nemail_username=xxx\\n#邮箱密码\\n#使用qq邮箱进行发送需要注意：首先需要开启：POP3\u002FSMTP服务，其次发送邮件的密码需要使用在开启POP3\u002FSMTP服务时候腾讯提供的第三方客户端登陆码。\\nemail_password=xxx\\n#附件图片\\nfile_path=\\\"\u002FUsers\u002Fxxx\u002FDocuments\u002Fwork\u002F二维码.png\\\"\\n\\n#smtp服务器地址\\nemail_smtphost=xxx\\nbundleShortVersion=$(\u002Fusr\u002Flibexec\u002FPlistBuddy -c \\\"Print CFBundleShortVersionString\\\" \u002FUsers\u002Fhuangzhenyu\u002FDocuments\u002Fwork\u002F${iosproject}\u002Fxxxapp_ios\u002FInfo.plist)\\n\\n\\n\\nemail_title=\\\"xxxTest iOS客户端 V \\\"$bundleShortVersion\\\"Build \\\"$bundleVersion\\nemail_result=$(cat ${CHANHELOG})\\nemail_content=\\\"下载地址：https:\u002F\u002Ffir.im\u002Ftest\\\"'\\\\n'\\\"更新日志：\\\"'\\\\n'\\\"$email_result\\\"\\nsendEmail -f ${email_sender} -t ${email_reciver1} ${email_reciver2} -s ${email_smtphost} -u ${email_title} -xu ${email_username} -xp ${email_password} -m \\\"$email_content\\\" -a ${file_path}  -o message-charset=utf-8\\n```\\n\\n脚本和plist地址[Github](https:\u002F\u002Fgithub.com\u002FFateOfKing\u002FmacShell)\\n\",\"addTime\":1594878909,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>

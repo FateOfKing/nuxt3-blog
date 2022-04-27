@@ -2,11 +2,79 @@
 <html  data-head-attrs="">
 
 <head >
-  <meta name="head:count" content="0"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="head:count" content="2"><link rel="modulepreload" href="/_nuxt/entry-6bec7f4f.mjs" as="script" crossorigin><link rel="preload" href="/_nuxt/entry.5f9986f8.css" as="style"><link rel="modulepreload" href="/_nuxt/_id_-16660968.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/article-0d844e3a.mjs" as="script" crossorigin><link rel="modulepreload" href="/_nuxt/index-ed8b9815.mjs" as="script" crossorigin><link rel="prefetch" href="/_nuxt/avatar.a4306ac7.jpg"><link rel="prefetch" as="script" href="/_nuxt/archive-670a69bb.mjs"><link rel="prefetch" as="script" href="/_nuxt/pageContainer-dd09c364.mjs"><link rel="prefetch" as="script" href="/_nuxt/index-429465fa.mjs"><link rel="prefetch" as="script" href="/_nuxt/life-2a467d13.mjs"><link rel="prefetch" as="script" href="/_nuxt/skillSample-add265d2.mjs"><link rel="stylesheet" href="/_nuxt/entry.5f9986f8.css">
 </head>
 
 <body  data-head-attrs="">
-  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e></div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e></div><div data-v-46bd053e></div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061238":{error:{graphQLErrors:[],networkError:"FetchError: request to http:\u002F\u002Flocalhost:4000\u002Fgraphql failed, reason: connect ECONNREFUSED 127.0.0.1:4000"}}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
+  <div id="__nuxt"><!--[--><!--[--><div class="bg-gray-page-bg-color h-screen" data-v-46bd053e><div class="flex justify-center bg-black-bg-color" data-v-46bd053e data-v-3cc81b26><div class="flex container h-[3.5rem] leading-[3.5rem] text-white px-5" data-v-3cc81b26><a href="/" class="site-title" data-v-3cc81b26>CarleBlog.com</a><span class="head-title-container" data-v-3cc81b26><a href="/" class="head-title" data-v-3cc81b26>博客首页</a></span><span class="head-title-container" data-v-3cc81b26><a href="/archive" class="head-title" data-v-3cc81b26>归档文章</a></span><span class="head-title-container" data-v-3cc81b26><a href="/skillSample" class="head-title" data-v-3cc81b26>技能展示</a></span></div></div><div class="container h-full mx-auto main clear-fix px-10" data-v-46bd053e><div class="center bg-white mt-5 p-5" data-v-46bd053e><div data-v-46bd053e><div class="text-black text-xl font-bold text-center" data-v-46bd053e>Vue-实战Filter(过滤器)和Directive(自定义指令)--长度过滤，特殊字符过滤</div><div class="text-sm text-gray-400 text-center mt-3" data-v-46bd053e>2020-7-17</div><div data-v-46bd053e><p>首先放上官网的链接。不知道的小伙伴先去了解一下什么是
+<a href="https://cn.vuejs.org/v2/guide/filters.html">Filter</a>
+<a href="https://cn.vuejs.org/v2/guide/custom-directive.html">Directive</a>
+脚手架：VUE Cli3</p>
+<h3 id="实战1：filter过滤器-显示过长字符则截取">实战1：Filter过滤器-显示过长字符则截取</h3>
+<pre><code>Vue<span class="hljs-built_in">.filter</span>(<span class="hljs-string">&#x27;sliceString&#x27;</span>, <span class="hljs-keyword">function</span>(str, <span class="hljs-keyword">start</span>, length) {
+        <span class="hljs-keyword">return</span> str.slice(<span class="hljs-keyword">start</span>, length);
+    });
+
+// 组件模板中使用如下：
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    </span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span></span><span class="language-xquery">{{ title | sliceString <span class="hljs-number">0</span> <span class="hljs-number">10</span>}</span><span class="language-xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="language-xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span>
+</code></pre>
+<p>注意：input 不支持v-model的过滤</p>
+<h3 id="实战2：directive自定义指令-输入框中去掉特殊字符">实战2：Directive自定义指令-输入框中去掉特殊字符</h3>
+<pre><code>Vue.directive(<span class="hljs-string">&#x27;specialString&#x27;</span>, {
+  <span class="hljs-attr">update</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, exceptString</span>) {
+    <span class="hljs-comment">// 这里将会被 `bind` 和 `update` 调用</span>
+    <span class="hljs-comment">// 将验证规则拆分为验证数组</span>
+    <span class="hljs-keyword">var</span> regEn = <span class="hljs-regexp">/[`~!@#$%^&amp;*()_+&lt;&gt;?:&quot;{},.\/;\\&#x27;[\]]/im</span>;
+    <span class="hljs-keyword">var</span> regCn = <span class="hljs-regexp">/[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im</span>;
+
+    <span class="hljs-keyword">if</span> (exceptString.expression != <span class="hljs-literal">undefined</span> &amp;&amp; exceptString.expression == <span class="hljs-string">&#x27;email&#x27;</span>) {
+      regEn = <span class="hljs-regexp">/[`~!#$%^&amp;*()_+&lt;&gt;?:&quot;{},.\/;&#x27;[\]]\\/im</span>;
+    }
+    <span class="hljs-keyword">if</span> (regEn.test(el.value) || regCn.test(el.value)) {
+      Vue.set(el, <span class="hljs-string">&#x27;value&#x27;</span>, checkName(el.value, exceptString.expression))
+      el.dispatchEvent(<span class="hljs-keyword">new</span> Event(exceptString.modifiers.lazy ? <span class="hljs-string">&#x27;change&#x27;</span> : <span class="hljs-string">&#x27;input&#x27;</span>))
+      Component.showOnceMessage(<span class="hljs-string">&quot;不能包含特殊字符&quot;</span>, <span class="hljs-string">&quot;error&quot;</span>);
+    }
+
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">checkName</span>(<span class="hljs-params">val, exceptString</span>) {
+      <span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/[`~!@#$%^&amp;*()_+&lt;&gt;?:&quot;{},.\/;\\&#x27;[\]·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im</span>
+
+      <span class="hljs-keyword">if</span> (exceptString != <span class="hljs-literal">undefined</span> &amp;&amp; exceptString == <span class="hljs-string">&#x27;email&#x27;</span>) {
+        reg = <span class="hljs-regexp">/[`~!#$%^&amp;*()_+&lt;&gt;?:&quot;{},.\/;\\&#x27;[\]·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im</span>
+      }
+      <span class="hljs-keyword">var</span> rs = <span class="hljs-string">&quot;&quot;</span>;
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, l = val.<span class="hljs-built_in">length</span>; i &lt; val.<span class="hljs-built_in">length</span>; i++) {
+        rs = rs + val.substr(i, <span class="hljs-number">1</span>).<span class="hljs-built_in">replace</span>(reg, <span class="hljs-string">&#x27;&#x27;</span>);
+      }
+      <span class="hljs-keyword">return</span> rs;
+    }
+  }
+});
+<span class="hljs-comment">//使用</span>
+ &lt;template&gt;
+   &lt;input v-specialString v-model=<span class="hljs-string">&quot;fax&quot;</span> :maxlength=<span class="hljs-string">&quot;50&quot;</span> type=<span class="hljs-string">&quot;text&quot;</span> /&gt;
+&lt;/template&gt;
+</code></pre>
+<p>Directive钩子函数
+一个指令定义对象可以提供如下几个钩子函数 (均为可选)：</p>
+<ul>
+<li><p><code>bind</code>：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
+</li>
+<li><p><code>inserted</code>：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
+</li>
+<li><p><code>update</code>：所在组件的 VNode 更新时调用，<strong>但是可能发生在其子 VNode 更新之前</strong>。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。</p>
+</li>
+<li><p><code>componentUpdated</code>：指令所在组件的 VNode <strong>及其子 VNode</strong> 全部更新后调用。</p>
+</li>
+<li><p><code>unbind</code>：只调用一次，指令与元素解绑时调用。</p>
+</li>
+</ul>
+<p>接下来我们来看一下钩子函数的参数 (即 <code>el</code>、<code>binding</code>、<code>vnode</code> 和 <code>oldVnode</code>)。</p>
+<p>上面代码是在更新的时候实时消除特殊字符，并且提示。
+最后一步<code>el.dispatchEvent </code>很重要，这一步会更新<code>input</code>对应的<code>v-modal</code>值</p>
+</div></div></div></div></div><!--]--><!--]--></div><script>window.__NUXT__={data:{pinia:{},urql:{"2323061238":{data:"{\"getArticle\":{\"id\":38,\"title\":\"Vue-实战Filter(过滤器)和Directive(自定义指令)--长度过滤，特殊字符过滤\",\"article_content\":\"首先放上官网的链接。不知道的小伙伴先去了解一下什么是\\n[Filter](https:\u002F\u002Fcn.vuejs.org\u002Fv2\u002Fguide\u002Ffilters.html)\\n[Directive](https:\u002F\u002Fcn.vuejs.org\u002Fv2\u002Fguide\u002Fcustom-directive.html)\\n脚手架：VUE Cli3\\n### 实战1：Filter过滤器-显示过长字符则截取\\n```\\nVue.filter('sliceString', function(str, start, length) {\\n        return str.slice(start, length);\\n    });\\n\\n\u002F\u002F 组件模板中使用如下：\\n\u003Ctemplate\u003E\\n    \u003Cspan\u003E{{ title | sliceString 0 10}}\u003C\u002Fspan\u003E\\n\u003C\u002Ftemplate\u003E\\n```\\n\\n注意：input 不支持v-model的过滤\\n\\n### 实战2：Directive自定义指令-输入框中去掉特殊字符\\n```\\nVue.directive('specialString', {\\n  update: function (el, exceptString) {\\n    \u002F\u002F 这里将会被 `bind` 和 `update` 调用\\n    \u002F\u002F 将验证规则拆分为验证数组\\n    var regEn = \u002F[`~!@#$%^&*()_+\u003C\u003E?:\\\"{},.\\\\\u002F;\\\\\\\\'[\\\\]]\u002Fim;\\n    var regCn = \u002F[·！#￥（——）：；“”‘、，|《。》？、【】[\\\\]]\u002Fim;\\n\\n    if (exceptString.expression != undefined && exceptString.expression == 'email') {\\n      regEn = \u002F[`~!#$%^&*()_+\u003C\u003E?:\\\"{},.\\\\\u002F;'[\\\\]]\\\\\\\\\u002Fim;\\n    }\\n    if (regEn.test(el.value) || regCn.test(el.value)) {\\n      Vue.set(el, 'value', checkName(el.value, exceptString.expression))\\n      el.dispatchEvent(new Event(exceptString.modifiers.lazy ? 'change' : 'input'))\\n      Component.showOnceMessage(\\\"不能包含特殊字符\\\", \\\"error\\\");\\n    }\\n\\n    function checkName(val, exceptString) {\\n      var reg = \u002F[`~!@#$%^&*()_+\u003C\u003E?:\\\"{},.\\\\\u002F;\\\\\\\\'[\\\\]·！#￥（——）：；“”‘、，|《。》？、【】[\\\\]]\u002Fim\\n\\n      if (exceptString != undefined && exceptString == 'email') {\\n        reg = \u002F[`~!#$%^&*()_+\u003C\u003E?:\\\"{},.\\\\\u002F;\\\\\\\\'[\\\\]·！#￥（——）：；“”‘、，|《。》？、【】[\\\\]]\u002Fim\\n      }\\n      var rs = \\\"\\\";\\n      for (var i = 0, l = val.length; i \u003C val.length; i++) {\\n        rs = rs + val.substr(i, 1).replace(reg, '');\\n      }\\n      return rs;\\n    }\\n  }\\n});\\n\u002F\u002F使用\\n \u003Ctemplate\u003E\\n   \u003Cinput v-specialString v-model=\\\"fax\\\" :maxlength=\\\"50\\\" type=\\\"text\\\" \u002F\u003E\\n\u003C\u002Ftemplate\u003E\\n```\\n\\nDirective钩子函数\\n一个指令定义对象可以提供如下几个钩子函数 (均为可选)：\\n*   `bind`：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。\\n\\n*   `inserted`：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。\\n\\n*   `update`：所在组件的 VNode 更新时调用，**但是可能发生在其子 VNode 更新之前**。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。\\n\\n\\n*   `componentUpdated`：指令所在组件的 VNode **及其子 VNode** 全部更新后调用。\\n\\n*   `unbind`：只调用一次，指令与元素解绑时调用。\\n\\n接下来我们来看一下钩子函数的参数 (即 `el`、`binding`、`vnode` 和 `oldVnode`)。\\n\\n上面代码是在更新的时候实时消除特殊字符，并且提示。\\n最后一步`el.dispatchEvent `很重要，这一步会更新`input`对应的`v-modal`值\\n\",\"addTime\":1594964726,\"view_content\":0,\"type_id\":\"4\",\"__typename\":\"ArticleDto\"}}"}}},state:{error:null},_errors:{},serverRendered:true,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},__URQL_DATA__:{}}</script><script type="module" src="/_nuxt/entry-6bec7f4f.mjs" crossorigin></script><script type="module" src="/_nuxt/_id_-16660968.mjs" crossorigin></script>
 </body>
 
 </html>
